@@ -51,7 +51,7 @@ public class Movement : MonoBehaviour
         switch(hits)
         {
             case 0:
-                target.transform.position = new Vector3(-10.0f, 0.5f, 10.0f);
+                target.transform.position = new Vector3(-6.0f, 0.5f, -10.0f);
 
                 break;
             case 1:
