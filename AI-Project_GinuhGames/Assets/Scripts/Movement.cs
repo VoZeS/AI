@@ -10,8 +10,8 @@ public class Movement : MonoBehaviour
 
     private int hits = 0;
 
-    public int maxVel = 3;
-    public int turnSpeed = 2;
+    public int maxVel = 6;
+    public int turnSpeed = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -37,7 +37,7 @@ public class Movement : MonoBehaviour
         if(distance.magnitude > limit.magnitude)
         {
 
-            transform.position += movement * Time.deltaTime;
+            transform.position += transform.forward.normalized * maxVel * Time.deltaTime;
 
             transform.rotation = Quaternion.Slerp(transform.rotation, rotation,
                                               Time.deltaTime * turnSpeed);

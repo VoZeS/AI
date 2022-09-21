@@ -249,7 +249,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 71c72cc387cb16944bd05350c3967849, type: 2}
+  - {fileID: 2100000, guid: 7d9e198b5bc1e474f81bd24d79acde7d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -393,9 +393,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 264101097}
-  limit: {x: 0.5, y: 0.5, z: 0.5}
-  maxVel: 14
-  turnSpeed: 5
+  limit: {x: 1, y: 1, z: 1}
+  maxVel: 6
+  turnSpeed: 6
 --- !u!54 &256884781
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -436,8 +436,8 @@ GameObject:
   - component: {fileID: 264101101}
   - component: {fileID: 264101100}
   - component: {fileID: 264101099}
-  - component: {fileID: 264101098}
   - component: {fileID: 264101102}
+  - component: {fileID: 264101103}
   m_Layer: 0
   m_Name: Target
   m_TagString: Untagged
@@ -445,19 +445,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!135 &264101098
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 264101097}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &264101099
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -535,10 +522,23 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!65 &264101103
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 264101097}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &397914918
 PrefabInstance:
   m_ObjectHideFlags: 0
