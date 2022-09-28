@@ -37,7 +37,7 @@ public class RunnerMovement : MonoBehaviour
 
         Vector3 movement = direction.normalized * acceleration;
 
-        Debug.Log(actualvel);
+        //Debug.Log(actualvel);
 
         float angle = Mathf.Rad2Deg * Mathf.Atan2(movement.x, movement.z);
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);  // up = y
@@ -48,7 +48,7 @@ public class RunnerMovement : MonoBehaviour
         {
             if (actualvel > minVelRot && breakRot)
             {
-                Debug.Log("Frenada");
+               //Debug.Log("Frenada");
 
                 actualvel += deacceleration * Time.deltaTime;
                 actualvel = Mathf.Max(actualvel, minVelRot);
@@ -73,7 +73,7 @@ public class RunnerMovement : MonoBehaviour
         else
         {
             hits++;
-            Debug.Log(hits);
+            //Debug.Log(hits);
         }
 
         switch(hits)

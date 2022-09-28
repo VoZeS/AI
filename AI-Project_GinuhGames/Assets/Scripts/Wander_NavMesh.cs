@@ -10,12 +10,14 @@ public class Wander_NavMesh : MonoBehaviour
     public float radius = 10.0f;
     public float offset = 10.0f;
 
-    private float timer = 0.0f;
+    private float timer = 5.0f;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        GetComponent<Animator>().enabled = false;
+
     }
 
     // Update is called once per frame
@@ -29,13 +31,16 @@ public class Wander_NavMesh : MonoBehaviour
             timer = 0.0f;
             Debug.Log(timer);
         }
-
-        if(agent.velocity == new Vector3(0.0f,0.0f,0.0f))
+        else if(agent.velocity == new Vector3(0.0f,0.0f,0.0f))
         {
-            float angle = Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.up);
-            agent.transform.rotation = Quaternion.Slerp(transform.rotation, rotation,
-                                              Time.deltaTime);
+            GetComponent<Animator>().enabled = true;
+
+            GetComponent<Animator>().Play("WatchCop");
+
+        }
+        else
+        {
+            GetComponent<Animator>().enabled = false;
         }
     }
 
