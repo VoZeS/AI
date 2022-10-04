@@ -21,8 +21,7 @@ public class Runner_NavMesh : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Run();
-
+       Run();
     }
 
     void Run()
@@ -60,7 +59,7 @@ public class Runner_NavMesh : MonoBehaviour
 
                 break;
             case 4:
-                target.transform.position = new Vector3(40.0f, 0.5f, 12.5f);
+                target.transform.position = new Vector3(40.0f, 0.5f, 10.5f);
 
                 break;
             case 6:
