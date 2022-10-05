@@ -73,7 +73,7 @@ public class TrafficLightsLogic : MonoBehaviour
             runner.areaMask = NavMesh.AllAreas;
 
             if (timer >= 5 &&
-                NavMesh.SamplePosition(runner.transform.position, out NavMeshHit hit, 0.0f, NavMesh.GetAreaFromName("PedestrianPass")))
+                NavMesh.SamplePosition(runner.transform.position, out NavMeshHit hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
             {
                 // Green Lights Off // Red Lights On
                 TL_Pedestrian_Green_L_Back.enabled = false;
