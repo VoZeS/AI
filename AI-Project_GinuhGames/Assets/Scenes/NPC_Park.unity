@@ -14878,13 +14878,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffd0ebb83eb7f6e40afbc3225698300a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fishPrefab: {fileID: 3421241870657840057, guid: b98999a5851bff9488a44446477f8bc3, type: 3}
+  fishPrefab: {fileID: 1046869630431942, guid: c717f817a496cf247a92b830b355a407, type: 3}
   numFish: 20
-  neighbourDistance: 1
+  neighbourDistance: 2
   minSpeed: 5
   maxSpeed: 10
   rotationSpeed: 1
   allFish:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

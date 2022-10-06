@@ -13,7 +13,6 @@ public class Flock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //direction = new (0.0f, 0.0f, 0.0f);
     }
 
     // Update is called once per frame
