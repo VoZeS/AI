@@ -69,7 +69,7 @@ public class TrafficLightsLogic : MonoBehaviour
             TL_Car_Red_Back.enabled = false;
             TL_Car_Red_Front.enabled = false;
 
-            //redRunner.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            redRunner.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             blueRunner.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
 
             if (timer >= 5)

@@ -10,7 +10,9 @@ public class Wander_NavMesh : MonoBehaviour
     public float radius = 10.0f;
     public float offset = 10.0f;
 
-    private float timer = 5.0f;
+    private float watchTimer = 0.0f;
+    private bool wandering;
+    private bool watching;
 
     // Start is called before the first frame update
     void Start()
@@ -18,37 +20,59 @@ public class Wander_NavMesh : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         GetComponent<Animator>().enabled = false;
 
+        wandering = true;
+        watching = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        timer += Time.deltaTime;
-
-        if(timer >= 5.0f)
+        watchTimer += Time.deltaTime;
+        
+        if (wandering)
         {
             Wander();
-            timer = 0.0f;
-            Debug.Log(timer);
+            wandering = false;
+            watching = true;
+
         }
-        else if(agent.velocity == new Vector3(0.0f,0.0f,0.0f))
+
+        if (agent.velocity == new Vector3(0.0f, 0.0f, 0.0f) && !wandering)  
         {
-            GetComponent<Animator>().enabled = true;
+            if (watching)
+            {
+                watchTimer = 0.0f;
+                watching = false;
 
-            GetComponent<Animator>().Play("WatchCop");
+               // Debug.Log("WatchTimer");
+               // Debug.Log(watchTimer);
+            }
 
+            if (watchTimer <= 1.9f)
+            {
+                GetComponent<Animator>().enabled = true;
+
+                GetComponent<Animator>().Play("WatchCop");
+
+            }
+            else
+            {
+                wandering = true;
+            }
         }
         else
         {
             GetComponent<Animator>().enabled = false;
+            watching = true;
         }
+
     }
 
 
     void Wander()
     {
         Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
-        localTarget += new Vector3(0, 0, offset);
+        localTarget += new Vector3(offset, 0, offset);
 
         Vector3 worldTarget = transform.TransformPoint(localTarget);
         worldTarget.y = 0f;

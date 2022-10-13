@@ -120,34 +120,38 @@ public class Runner_NavMesh : MonoBehaviour
 
                 break;
             case 1:
-                redTarget.transform.position = new Vector3(0.0f, 0.5f, 13.0f);
+                redTarget.transform.position = new Vector3(26.0f, 0.5f, 15.0f);
 
                 break;
             case 2:
-                redTarget.transform.position = new Vector3(-9.0f, 0.5f, -14.0f);
+                redTarget.transform.position = new Vector3(0.0f, 0.5f, 15.0f);
 
                 break;
             case 3:
-                redTarget.transform.position = new Vector3(-32.0f, 0.5f, -14.0f);
+                redTarget.transform.position = new Vector3(-9.0f, 0.5f, -14.0f);
 
                 break;
             case 4:
-                redTarget.transform.position = new Vector3(-33.0f, 0.5f, 13.0f);
+                redTarget.transform.position = new Vector3(-32.0f, 0.5f, -14.0f);
 
                 break;
             case 5:
-                redTarget.transform.position = new Vector3(33.0f, 0.5f, 13.0f);
+                redTarget.transform.position = new Vector3(-33.0f, 0.5f, 13.0f);
 
                 break;
             case 6:
-                redTarget.transform.position = new Vector3(39.0f, 0.5f, -15.0f);
+                redTarget.transform.position = new Vector3(33.0f, 0.5f, 13.0f);
 
                 break;
             case 7:
-                redTarget.transform.position = new Vector3(75.0f, 0.5f, -18.0f);
+                redTarget.transform.position = new Vector3(39.0f, 0.5f, -15.0f);
 
                 break;
             case 8:
+                redTarget.transform.position = new Vector3(75.0f, 0.5f, -18.0f);
+
+                break;
+            case 9:
                 redHits = -1;
                 break;
         }
