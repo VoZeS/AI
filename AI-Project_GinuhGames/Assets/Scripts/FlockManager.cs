@@ -14,6 +14,8 @@ public class FlockManager : MonoBehaviour
     public GameObject[] allFish;
 
     public GameObject lider;
+    public GameObject runner;
+    public GameObject initialPoint;
 
     // Start is called before the first frame update
     void Start()

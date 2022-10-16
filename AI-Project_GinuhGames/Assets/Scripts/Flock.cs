@@ -13,6 +13,7 @@ public class Flock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
     }
 
     // Update is called once per frame
@@ -21,6 +22,20 @@ public class Flock : MonoBehaviour
         /*Cohesion();
         Align();
         Separation();*/
+        
+
+
+
+        if (Vector3.Distance(myManager.lider.transform.position, myManager.runner.transform.position) < 10)
+        {
+            myManager.lider.transform.position = myManager.runner.transform.position;
+
+        }
+        if (Vector3.Distance(myManager.initialPoint.transform.position, myManager.runner.transform.position)>60)
+        {
+            myManager.lider.transform.position = myManager.initialPoint.transform.position;
+        }
+
 
         liderDistance = myManager.lider.transform.position - transform.position;
 
