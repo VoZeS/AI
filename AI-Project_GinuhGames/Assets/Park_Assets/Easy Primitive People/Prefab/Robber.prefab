@@ -1391,7 +1391,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7423567203501390115}
   - component: {fileID: 958753461}
-  - component: {fileID: 958753463}
   m_Layer: 0
   m_Name: Robber
   m_TagString: Untagged
@@ -1437,19 +1436,6 @@ NavMeshAgent:
   m_BaseOffset: 1
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &958753463
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438494788967298231}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e5c126e2db5389d49b96b35b92f45c07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 0}
 --- !u!1 &7654464796460211274
 GameObject:
   m_ObjectHideFlags: 0

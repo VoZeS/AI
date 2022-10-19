@@ -53,7 +53,7 @@ public class Flock : MonoBehaviour
     {
         Vector3 cohesion = Vector3.zero;
         int num = 0;
-        foreach (GameObject go in myManager.allFish)
+        foreach (GameObject go in myManager.allBee)
         {
             if (go != this.gameObject)
             {
@@ -79,7 +79,7 @@ public class Flock : MonoBehaviour
     {
         Vector3 align = Vector3.zero;
         int num = 0;
-        foreach (GameObject go in myManager.allFish)
+        foreach (GameObject go in myManager.allBee)
         {
             if (go != this.gameObject)
             {
@@ -104,7 +104,7 @@ public class Flock : MonoBehaviour
     Vector3 Separation()
     {
         Vector3 separation = Vector3.zero;
-        foreach (GameObject go in myManager.allFish)
+        foreach (GameObject go in myManager.allBee)
         {
             if (go != this.gameObject)
             {

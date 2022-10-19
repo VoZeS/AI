@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FlockManager : MonoBehaviour
 {
-    public GameObject fishPrefab;
-    public int numFish = 10;
+    public GameObject beePrefab;
+    public int numBee = 10;
     public float neighbourDistance = 20.0f;
     public float minSpeed = 5.0f;
     public float maxSpeed = 20.0f;
     public float rotationSpeed = 5.0f;
 
-    public GameObject[] allFish;
+    public GameObject[] allBee;
 
     public GameObject lider;
     public GameObject runner;
@@ -20,16 +20,16 @@ public class FlockManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        allFish = new GameObject[numFish];
+        allBee = new GameObject[numBee];
 
-        for (int i = 0; i < numFish; ++i)
+        for (int i = 0; i < numBee; ++i)
         {
             Vector3 pos = this.transform.position + new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(-20.0f, 20.0f), Random.Range(-20.0f, 20.0f)); // random position
             Vector3 randomize = new Vector3(Random.Range(-20.0f, 20.0f), Random.Range(-20.0f, 20.0f), Random.Range(-20.0f, 20.0f)); // random vector direction
 
-            allFish[i] = (GameObject)Instantiate(fishPrefab, pos,
+            allBee[i] = (GameObject)Instantiate(beePrefab, pos,
                                 Quaternion.LookRotation(randomize));
-            allFish[i].GetComponent<Flock>().myManager = this;
+            allBee[i].GetComponent<Flock>().myManager = this;
         }
     }
 
