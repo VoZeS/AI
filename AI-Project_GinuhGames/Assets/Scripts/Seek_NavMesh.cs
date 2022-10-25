@@ -6,7 +6,6 @@ using UnityEngine.AI;
 public class Seek_NavMesh : MonoBehaviour
 {
     private NavMeshAgent agent;
-    public GameObject target;
 
     // Start is called before the first frame update
     void Start()
@@ -14,12 +13,7 @@ public class Seek_NavMesh : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        Seek();
-    }
-    void Seek()
+    public void Seek(GameObject target)
     {
         agent.destination = target.transform.position;
     }
