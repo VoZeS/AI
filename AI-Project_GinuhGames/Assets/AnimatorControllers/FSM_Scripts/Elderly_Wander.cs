@@ -10,12 +10,14 @@ public class Elderly_Wander : StateMachineBehaviour
     {
         move_wander = animator.GetComponent<Wander_NavMesh_Simple>();
         blackboard = animator.GetComponent<BlackBoard>();
-
+        blackboard.energy = 20.0f;
     }
 
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < blackboard.dist2Bench)
+        blackboard.energy -= Time.deltaTime;
+
+        if (/*Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < blackboard.dist2Bench &&*/ blackboard.energy <= 0.0f) 
             animator.SetTrigger("tired");
         else
             move_wander.Wander();

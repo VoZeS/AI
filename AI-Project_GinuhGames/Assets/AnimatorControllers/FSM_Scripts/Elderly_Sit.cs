@@ -5,22 +5,20 @@ using UnityEngine;
 public class Elderly_Sit : StateMachineBehaviour
 {
     BlackBoard blackboard;
-    private float timer;
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         blackboard = animator.GetComponent<BlackBoard>();
-
-        timer = 0.0f;
+        blackboard.energy = 0.0f;
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        timer += Time.deltaTime;
+        blackboard.energy += 2*Time.deltaTime;
 
-        if (timer < 4.0f)
+        if (blackboard.energy <= 20.0f)
             blackboard.elder.forward = blackboard.bench.transform.forward;
         else
             animator.SetTrigger("rested");

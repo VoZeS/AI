@@ -17,7 +17,7 @@ public class Elderly_Approach : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < blackboard.dist2Bench / 2)
+        if (Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < 2.0f)
             animator.SetTrigger("sit");
         else
             move_seek.Seek(blackboard.bench);
