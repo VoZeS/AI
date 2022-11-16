@@ -54,11 +54,10 @@ public class Wander_NavMesh_Simple : MonoBehaviour
                 // Debug.Log("WatchTimer");
                 // Debug.Log(watchTimer);
             }
-
-            if (watchTimer <= 2.0f)
-            {
-                Stop();
-            }
+          //if (watchTimer <= 1.0f)
+          //{
+          //  Stop();
+          //}
             else
             {
                 wandering = true;
@@ -70,8 +69,8 @@ public class Wander_NavMesh_Simple : MonoBehaviour
         }
     }
 
-    void Stop()
-    {
-        agent.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-    }
+    //void Stop()
+    //{
+    //    agent.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+    //}
 }

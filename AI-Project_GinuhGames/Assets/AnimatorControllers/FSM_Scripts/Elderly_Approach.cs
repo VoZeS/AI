@@ -18,7 +18,9 @@ public class Elderly_Approach : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < 2.0f)
-            animator.SetTrigger("sit");
+        {
+            animator.SetTrigger("sit");  // approach trigger ON
+        }
         else
             move_seek.Seek(blackboard.bench);
     }

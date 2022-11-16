@@ -21,7 +21,13 @@ public class Elderly_Sit : StateMachineBehaviour
         if (blackboard.energy <= 20.0f)
             blackboard.elder.forward = blackboard.bench.transform.forward;
         else
-            animator.SetTrigger("rested");
+        {
+            animator.ResetTrigger("tired"); // tired trigger OFF
+            animator.ResetTrigger("sit"); // sitted trigger OFF
+            animator.SetTrigger("rested"); // rested trigger ON
+
+
+        }
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
