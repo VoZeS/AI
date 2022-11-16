@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Wander_NavMesh_Simple : MonoBehaviour
+public class Wander_NavMesh : MonoBehaviour
 {
     NavMeshAgent agent;
 
@@ -11,53 +11,50 @@ public class Wander_NavMesh_Simple : MonoBehaviour
     public float offset = 10.0f;
 
     private float watchTimer = 0.0f;
-    public bool wandering ;
-    public bool watching;
+    private bool wandering;
+    private bool watching;
 
     // Start is called before the first frame update
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        GetComponent<Animator>().enabled = false;
 
         wandering = true;
         watching = true;
-
-        agent.velocity = new Vector3(0.0f, 0.0f, 5.0f);
     }
 
-    public void Wander()
+    // Update is called once per frame
+    void Update()
     {
         watchTimer += Time.deltaTime;
-
+        
         if (wandering)
         {
-            Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
-            localTarget += new Vector3(offset, 0, offset);
-
-            Vector3 worldTarget = transform.TransformPoint(localTarget);
-            worldTarget.y = 0f;
-
-            agent.destination = worldTarget;
-
+            Wander();
             wandering = false;
             watching = true;
 
         }
 
-        if (agent.velocity == new Vector3(0.0f, 0.0f, 0.0f) && !wandering)
+        if (agent.velocity == new Vector3(0.0f, 0.0f, 0.0f) && !wandering)  
         {
             if (watching)
             {
                 watchTimer = 0.0f;
                 watching = false;
 
-                // Debug.Log("WatchTimer");
-                // Debug.Log(watchTimer);
+               // Debug.Log("WatchTimer");
+               // Debug.Log(watchTimer);
             }
-          //if (watchTimer <= 1.0f)
-          //{
-          //  Stop();
-          //}
+
+            if (watchTimer <= 1.9f)
+            {
+                GetComponent<Animator>().enabled = true;
+
+                GetComponent<Animator>().Play("WatchCop");
+
+            }
             else
             {
                 wandering = true;
@@ -65,12 +62,21 @@ public class Wander_NavMesh_Simple : MonoBehaviour
         }
         else
         {
+            GetComponent<Animator>().enabled = false;
             watching = true;
         }
+
     }
 
-    //void Stop()
-    //{
-    //    agent.velocity = new Vector3(0.0f, 0.0f, 0.0f);
-    //}
+
+    public void Wander()
+    {
+        Vector3 localTarget = UnityEngine.Random.insideUnitCircle * radius;
+        localTarget += new Vector3(offset, 0, offset);
+
+        Vector3 worldTarget = transform.TransformPoint(localTarget);
+        worldTarget.y = 0f;
+        
+        agent.destination = worldTarget;
+    }
 }
