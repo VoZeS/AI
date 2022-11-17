@@ -21,6 +21,7 @@ public class TrafficLightsLogic : MonoBehaviour
 
     public NavMeshAgent blueRunner;
     public NavMeshAgent redRunner;
+    public NavMeshAgent elder;
 
     private float timer;
     // Start is called before the first frame update
@@ -71,6 +72,7 @@ public class TrafficLightsLogic : MonoBehaviour
 
             redRunner.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             blueRunner.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            elder.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
 
             if (timer >= 5)
             {
@@ -104,10 +106,12 @@ public class TrafficLightsLogic : MonoBehaviour
 
             redRunner.areaMask = NavMesh.AllAreas;
             blueRunner.areaMask = NavMesh.AllAreas;
+            elder.areaMask = NavMesh.AllAreas;
 
             if (timer >= 5 &&
                 (NavMesh.SamplePosition(blueRunner.transform.position, out NavMeshHit blueHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
-                && (NavMesh.SamplePosition(redRunner.transform.position, out NavMeshHit redHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))))
+                && (NavMesh.SamplePosition(redRunner.transform.position, out NavMeshHit redHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
+                && (NavMesh.SamplePosition(elder.transform.position, out NavMeshHit elderHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))))
             {
                 // PEDESTRIAN: Green Lights Off // Red Lights On
                 TL_Pedestrian_Green_L_Back.enabled = false;

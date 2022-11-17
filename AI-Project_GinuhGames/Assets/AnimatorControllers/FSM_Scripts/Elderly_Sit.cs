@@ -18,15 +18,7 @@ public class Elderly_Sit : StateMachineBehaviour
     {
         blackboard.energy += 2*Time.deltaTime;
 
-        if (blackboard.energy <= 20.0f)
-        {
-            Debug.Log(blackboard.elder.forward);
-            blackboard.elder.Rotate(new Vector3(1.0f, 0.0f, 0.0f), 245.0f);
-            Debug.Log(blackboard.elder.forward);
-
-
-        }
-        else
+        if (blackboard.energy >= 20.0f)
         {
             animator.ResetTrigger("tired"); // tired trigger OFF
             animator.ResetTrigger("sit"); // sitted trigger OFF

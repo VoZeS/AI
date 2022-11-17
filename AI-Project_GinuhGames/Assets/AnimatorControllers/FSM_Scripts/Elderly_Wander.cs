@@ -17,14 +17,23 @@ public class Elderly_Wander : StateMachineBehaviour
     {
         blackboard.energy -= Time.deltaTime;
 
-        if (/*Vector3.Distance(blackboard.elder.position, blackboard.bench.transform.position) < blackboard.dist2Bench &&*/ blackboard.energy <= 0.0f) 
-            animator.SetTrigger("tired");  // tired trigger ON
-        else
+        for(int i = 0; i< blackboard.numBenches; i++)
         {
-            animator.ResetTrigger("rested"); // rested trigger OFF
-            move_wander.Wander();
+            if (/*Vector3.Distance(blackboard.elder.position, blackboard.allBenches[i].transform.position) < blackboard.dist2Bench &&*/ blackboard.energy <= 0.0f)
+            {
+                // Sort, so the lower distance is in allBenches[0]
+                blackboard.LowerDistanceBubbleSort();
 
+                animator.SetTrigger("tired");  // tired trigger ON
+            }
+            else
+            {
+                animator.ResetTrigger("rested"); // rested trigger OFF
+                move_wander.Wander();
+
+            }
         }
+       
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
