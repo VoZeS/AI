@@ -7,11 +7,11 @@ using Pada1.BBCore.Framework; // BasePrimitiveAction
 [Help("Persecution")]
 public class Seek : BasePrimitiveAction
 {
-    [InParam("game object")]
+    [InParam("Seeker")]
     [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
     public GameObject seeker;
 
-    [InParam("target")]
+    [InParam("Tarjet")]
     [Help("The GameObject that will get persecuted.")]
     public GameObject targetToSeek;
     public override TaskStatus OnUpdate()
@@ -20,7 +20,7 @@ public class Seek : BasePrimitiveAction
 
         seek.Seek(targetToSeek);
 
-        if (Vector3.Distance(seeker.transform.position, targetToSeek.transform.position) < 2.0f)
+        if (Vector3.Distance(seeker.transform.position, targetToSeek.transform.position) < 3.0f)
             return TaskStatus.COMPLETED;
         else
             return TaskStatus.RUNNING;
