@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Runner_NavMesh : MonoBehaviour
+public class FollowPath_NavMesh : MonoBehaviour
 {
     NavMeshAgent blueAgent;
     NavMeshAgent redAgent;
@@ -19,6 +19,7 @@ public class Runner_NavMesh : MonoBehaviour
 
     private int blueHits = 0;
     private int redHits = 0;
+ 
 
     // Start is called before the first frame update
     void Start()
