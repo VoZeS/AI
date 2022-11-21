@@ -14,7 +14,7 @@ public class Kick : BasePrimitiveAction
     {
         Rigidbody ballRB = ball.GetComponent<Rigidbody>();
 
-        ballRB.AddForce(new Vector3(Random.Range(-2000f,2000f), Random.Range(100f, 200f), Random.Range(-1000f, 1000f)));
+        ballRB.AddForce(new Vector3(Random.Range(-4000f,4000f), Random.Range(100f, 200f), Random.Range(-2000f, 2000f)));
         
         return TaskStatus.COMPLETED;
     }
