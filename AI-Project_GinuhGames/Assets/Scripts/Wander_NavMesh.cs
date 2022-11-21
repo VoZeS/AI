@@ -79,4 +79,6 @@ public class Wander_NavMesh : MonoBehaviour
         
         agent.destination = worldTarget;
     }
+
+    
 }

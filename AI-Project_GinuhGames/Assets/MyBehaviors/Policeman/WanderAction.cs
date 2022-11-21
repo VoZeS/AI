@@ -13,13 +13,21 @@ public class Wander : BasePrimitiveAction
     [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
     public GameObject wanderLogic;
 
+    [InParam("WanderAgent")]
+    [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
+    public GameObject wanderAgent;
 
-     public override TaskStatus OnUpdate()
+
+    public override TaskStatus OnUpdate()
     {
-        Wander_NavMesh_Simple wander = wanderLogic.GetComponent<Wander_NavMesh_Simple>();
+        wanderLogic wander = wanderLogic.GetComponent<wanderLogic>();
 
-        wander.Wander();
+        NavMeshAgent agent = wanderAgent.GetComponent<NavMeshAgent>();
 
-        return TaskStatus.COMPLETED;
+
+
+        wander.WanderBehavior(agent,wanderAgent);
+
+        return TaskStatus.RUNNING;
     }
 }
