@@ -10,13 +10,11 @@ public class BlackBoard : MonoBehaviour
     public Transform elder;
     public int numBenches = 7;
     public GameObject[] allBenches;
-    public Scrollbar energyScrollelder1;
-    public Scrollbar energyScrollelder2;
+    public Scrollbar energyScroll;
 
     private void Update()
     {
-        energyScrollelder1.size = energy / 20.0f;
-        energyScrollelder2.size = energy / 20.0f;
+        energyScroll.size = energy / 20.0f;
     }
 
     public void LowerDistanceBubbleSort()
