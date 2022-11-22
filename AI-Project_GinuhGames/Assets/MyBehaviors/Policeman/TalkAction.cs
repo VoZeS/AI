@@ -13,11 +13,11 @@ public class TalkAction : BasePrimitiveAction
     [InParam("Policeman")]
     public GameObject policeman;
 
-    private float watchTimer = 0.0f;
+    private float talkTimer = 0.0f;
     public override TaskStatus OnLatentStart()
     {
         Debug.Log("hola");
-        watchTimer = 0.0f;
+        talkTimer = 0.0f;
         return base.OnLatentStart();
         
         
@@ -26,8 +26,15 @@ public class TalkAction : BasePrimitiveAction
     public override TaskStatus OnUpdate()
     {
         //logica: parem als dos personatges durant 4 segons i despres cadascu marxa a fer wander
-        watchTimer = Time.deltaTime;
-        Debug.Log(watchTimer);
-        return TaskStatus.COMPLETED;
+        talkTimer = Time.deltaTime;
+        if (talkTimer <= 4f)
+        {
+            Debug.Log(talkTimer);
+            return TaskStatus.RUNNING;
+        }
+        else
+            return TaskStatus.COMPLETED;
+       
+        
     }
 }

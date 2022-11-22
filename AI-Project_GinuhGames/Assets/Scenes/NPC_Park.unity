@@ -5614,6 +5614,7 @@ GameObject:
   m_Component:
   - component: {fileID: 522808473}
   - component: {fileID: 522808474}
+  - component: {fileID: 522808475}
   m_Layer: 0
   m_Name: blackboard
   m_TagString: Untagged
@@ -5652,6 +5653,26 @@ MonoBehaviour:
   offset: 10
   wandering: 0
   watching: 0
+--- !u!114 &522808475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 522808472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a2ac9c479c6944499519789b876f42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numElders: 5
+  allElders:
+  - {fileID: 1016337578}
+  - {fileID: 1646167717}
+  - {fileID: 1778484437}
+  - {fileID: 522822075}
+  - {fileID: 1125541520}
+  robber: {fileID: 0}
 --- !u!1 &522822075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1216435090000238643, guid: 34e776118e152b444ba6649c44b8b1c8, type: 3}
