@@ -25,12 +25,9 @@ public class SeekElderAction : BasePrimitiveAction
 
         bhblackboard.SeekClosestElder();
 
+        seek.Seek(bhblackboard.allElders[0]);
 
-
-
-        seek.Seek(targetToSeek);
-
-        if (Vector3.Distance(seeker.transform.position, targetToSeek.transform.position) < 3.0f)
+        if (Vector3.Distance(seeker.transform.position, bhblackboard.allElders[0].transform.position) < 3.0f)
             return TaskStatus.COMPLETED;
         else
             return TaskStatus.RUNNING;

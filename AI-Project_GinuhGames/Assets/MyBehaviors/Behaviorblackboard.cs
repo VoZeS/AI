@@ -1,6 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Behaviorblackboard : MonoBehaviour
 {
@@ -8,6 +11,7 @@ public class Behaviorblackboard : MonoBehaviour
     public int numElders = 5;
     public GameObject[] allElders;
     public Transform robber;
+    private GameObject[] hidingSpots;
 
     public void SeekClosestElder()
     {
@@ -35,6 +39,33 @@ public class Behaviorblackboard : MonoBehaviour
                 }
             }
         }
+    }
+    
+    
+    private void Seek(Vector3 pos, GameObject robber)
+    {
+        NavMeshAgent agent = robber.GetComponent<NavMeshAgent>();
+        agent.destination = pos;
+    }
+
+
+
+    public void Hide(GameObject robber)
+    {
+        hidingSpots = GameObject.FindGameObjectsWithTag("hide");
+
+
+        Func<GameObject, float> distance =
+            (hs) => Vector3.Distance(robber.transform.position,
+                                     hs.transform.position);
+        GameObject hidingSpot = hidingSpots.Select(
+            ho => (distance(ho), ho)
+            ).Min().Item2;
+        Vector3 dir = hidingSpot.transform.position - robber.transform.position;
+        Ray backRay = new Ray(hidingSpot.transform.position, -dir.normalized);
+        RaycastHit info;
+        hidingSpot.GetComponent<Collider>().Raycast(backRay, out info, 50f);
+        Seek(info.point + dir.normalized, robber);
     }
 }
 

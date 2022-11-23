@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class wanderLogic : MonoBehaviour
+public class WanderLogic : MonoBehaviour
 {
     public float radius = 10.0f;
     public float offset = 10.0f;

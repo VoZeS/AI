@@ -20,7 +20,7 @@ public class Wander : BasePrimitiveAction
 
     public override TaskStatus OnUpdate()
     {
-        wanderLogic wander = wanderLogic.GetComponent<wanderLogic>();
+        WanderLogic wander = wanderLogic.GetComponent<WanderLogic>();
 
         NavMeshAgent agent = wanderAgent.GetComponent<NavMeshAgent>();
 
