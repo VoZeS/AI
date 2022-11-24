@@ -62,31 +62,31 @@ MonoBehaviour:
     />\r\n          <ActionNode id=\"6\" />\r\n          <RepeatDecorator id=\"8\"
     />\r\n        </nodes>\r\n      </_nodes>\r\n    </BehaviorTree>\r\n    <RepeatDecorator
     id=\"8\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"544.2667 70.96664\" name=\"Repeat\" description=\"Repeats the execution
+    position=\"474.2665 -5.700041\" name=\"Repeat\" description=\"Repeats the execution
     of its child node\" cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <RepeatDecorator id=\"8\" />\r\n        </data>\r\n     
     </_data>\r\n    </RepeatDecorator>\r\n    <SequenceNode id=\"2\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"531.8926 203.9664\" name=\"Sequence\"
+    <data breakpoint=\"0\" selected=\"False\" position=\"461.8926 127.2996\" name=\"Sequence\"
     description=\"Executes all its children in sequence until all of them are successful\"
     cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <RepeatDecorator id=\"8\" />\r\n          <RepeatDecorator id=\"8\" />\r\n       
     </data>\r\n      </_data>\r\n    </SequenceNode>\r\n    <SelectorNode id=\"3\">\r\n     
-    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"469.115
-    323.9655\" name=\"Selector\" description=\"Executes all its children until one
+    <_data>\r\n        <data breakpoint=\"0\" selected=\"False\" position=\"399.1153
+    247.2991\" name=\"Selector\" description=\"Executes all its children until one
     of them is successful\" cardinality=\"-1\" hasParent=\"True\">\r\n          <BehaviorTree
     id=\"0\" />\r\n          <SelectorNode id=\"3\" />\r\n          <SequenceNode
     id=\"2\" />\r\n        </data>\r\n      </_data>\r\n    </SelectorNode>\r\n   
     <ActionNode id=\"6\">\r\n      <_data>\r\n        <data breakpoint=\"0\" selected=\"False\"
-    position=\"785.123 343.1927\" name=\"MyActions/Walk\" description=\"Persecution\"
+    position=\"715.1223 266.5264\" name=\"MyActions/Walk\" description=\"Persecution\"
     cardinality=\"0\" hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n         
     <ActionNode id=\"6\" />\r\n          <SequenceNode id=\"2\" />\r\n        </data>\r\n     
     </_data>\r\n    </ActionNode>\r\n    <ConditionNode id=\"5\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"302.4244 495.4949\" name=\"MyConditions/Is
+    <data breakpoint=\"0\" selected=\"False\" position=\"232.4246 418.8286\" name=\"MyConditions/Is
     Boy Near Father?\" description=\"Checks whether Boy is near the Father.\" cardinality=\"0\"
     hasParent=\"True\">\r\n          <BehaviorTree id=\"0\" />\r\n          <ConditionNode
     id=\"5\" />\r\n          <SelectorNode id=\"3\" />\r\n        </data>\r\n     
     </_data>\r\n    </ConditionNode>\r\n    <ActionNode id=\"4\">\r\n      <_data>\r\n       
-    <data breakpoint=\"0\" selected=\"False\" position=\"599.0914 488.8286\" name=\"MyActions/Seek\"
+    <data breakpoint=\"0\" selected=\"True\" position=\"530.7574 412.1623\" name=\"MyActions/Seek\"
     description=\"Persecution\" cardinality=\"0\" hasParent=\"True\">\r\n         
     <BehaviorTree id=\"0\" />\r\n          <ActionNode id=\"4\" />\r\n          <SelectorNode
     id=\"3\" />\r\n        </data>\r\n      </_data>\r\n    </ActionNode>\r\n   
@@ -94,6 +94,6 @@ MonoBehaviour:
     selected=\"False\" position=\"0 0\" name=\"AlwaysTrue\" description=\"Eval\"
     cardinality=\"1\" hasParent=\"False\">\r\n          <BehaviorTree id=\"0\" />\r\n       
     </data>\r\n      </_data>\r\n    </ConditionEvalNode>\r\n  </editorInfo>\r\n</BehaviorBricks>"
-  zoom: 0.8
+  zoom: 0.6
   subslist: []
   _guid: b40478b9ff32adc4b95e52b9bd55fe64
