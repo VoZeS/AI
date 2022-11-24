@@ -14,6 +14,9 @@ public class TalkAction : BasePrimitiveAction
     [InParam("Policeman")]
     public GameObject policeman;
 
+    [InParam("Blackboard")]
+    public GameObject blackboard;
+
     private float talkTimer = 0.0f;
     private float afterTimer = 0.0f;
 
@@ -21,6 +24,7 @@ public class TalkAction : BasePrimitiveAction
     {
         NavMeshAgent robber = thief.GetComponent<NavMeshAgent>();
         NavMeshAgent cop = policeman.GetComponent<NavMeshAgent>();
+        Behaviorblackboard blackboardText = blackboard.GetComponent<Behaviorblackboard>();
 
         Debug.Log("talktimer");
         Debug.Log(talkTimer);
@@ -35,12 +39,13 @@ public class TalkAction : BasePrimitiveAction
                 afterTimer = 0;
                 robber.velocity = new Vector3(0.0f, 0.0f, 0.0f);
                 cop.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+                blackboardText.policeText.gameObject.SetActive(true);
             }
             else
             {
                 afterTimer += Time.deltaTime;
-
-                if(afterTimer >= 15.0f)
+                blackboardText.policeText.gameObject.SetActive(false);
+                if (afterTimer >= 15.0f)
                 {
                     talkTimer = 0.0f;
                 }
