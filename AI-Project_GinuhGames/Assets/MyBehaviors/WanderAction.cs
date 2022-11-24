@@ -35,7 +35,7 @@ public class Wander : BasePrimitiveAction
             if(timerRob >= 10.0f)
                 bhblackboard.hasRobbed = false;
         }
-        Debug.Log(bhblackboard.timer);
+        //Debug.Log(bhblackboard.timer);
 
         wander.WanderBehavior(agent,wanderAgent);
 
