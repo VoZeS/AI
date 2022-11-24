@@ -13,7 +13,7 @@ public class Behaviorblackboard : MonoBehaviour
     public Transform robber;
     private GameObject[] hidingSpots;
     public float timer = 0;
-
+    public bool hasRobbed = false;
     public void SeekClosestElder()
     {
         int i, j;

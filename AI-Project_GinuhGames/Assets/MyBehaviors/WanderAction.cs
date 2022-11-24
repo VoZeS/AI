@@ -17,14 +17,25 @@ public class Wander : BasePrimitiveAction
     [Help("Game object to add the component, if no assigned the component is added to the game object of this behavior")]
     public GameObject wanderAgent;
 
-
+    private float timerRob = 0.0f;
     public override TaskStatus OnUpdate()
     {
         WanderLogic wander = wanderLogic.GetComponent<WanderLogic>();
 
         NavMeshAgent agent = wanderAgent.GetComponent<NavMeshAgent>();
 
+        Behaviorblackboard bhblackboard = wanderLogic.GetComponent<Behaviorblackboard>();
 
+        if (bhblackboard.hasRobbed)
+        {
+            bhblackboard.timer = 0;
+
+            timerRob += Time.deltaTime;
+
+            if(timerRob >= 10.0f)
+                bhblackboard.hasRobbed = false;
+        }
+        Debug.Log(bhblackboard.timer);
 
         wander.WanderBehavior(agent,wanderAgent);
 

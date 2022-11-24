@@ -3858,6 +3858,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1824379767, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 6631964419132099031, guid: 35d11d1e1dd397942b5024ee78060e27, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -5767,6 +5771,8 @@ MonoBehaviour:
   - {fileID: 522822075}
   - {fileID: 1125541520}
   robber: {fileID: 177673291}
+  timer: 0
+  hasRobbed: 0
 --- !u!114 &522808476
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10807,9 +10813,11 @@ MonoBehaviour:
     objectParams:
     - {fileID: 522808472}
     - {fileID: 1117712350}
+    - {fileID: 177673284}
     objectParamsNames:
     - blackboard
     - Policeman
+    - Thief
     objectParamsLostDefaultValue: 
     layerMaskParams: []
     layerMaskParamsNames: []
@@ -10847,7 +10855,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1117712350}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5c126e2db5389d49b96b35b92f45c07, type: 3}
   m_Name: 
@@ -13907,6 +13915,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 958753461, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
+      propertyPath: m_Speed
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 958753461, guid: b79d0b13355dc8f44b7956db61a82656, type: 3}
       propertyPath: m_StoppingDistance
       value: 0

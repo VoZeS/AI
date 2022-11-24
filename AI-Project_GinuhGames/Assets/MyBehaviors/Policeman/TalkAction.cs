@@ -2,6 +2,7 @@ using UnityEngine;
 using Pada1.BBCore;           // Code attributes
 using Pada1.BBCore.Tasks;     // TaskStatus
 using Pada1.BBCore.Framework; // BasePrimitiveAction
+using UnityEngine.AI;
 
 [Action("MyActions/Talk")]
 [Help("The cop starts talking to the thief")]
@@ -14,22 +15,37 @@ public class TalkAction : BasePrimitiveAction
     public GameObject policeman;
 
     private float talkTimer = 0.0f;
-    public override TaskStatus OnLatentStart()
-    {
-        Debug.Log("hola");
-        talkTimer = 0.0f;
-        return base.OnLatentStart();
-        
-        
-    }
+    private float afterTimer = 0.0f;
 
     public override TaskStatus OnUpdate()
     {
+        NavMeshAgent robber = thief.GetComponent<NavMeshAgent>();
+        NavMeshAgent cop = policeman.GetComponent<NavMeshAgent>();
+
+        Debug.Log("talktimer");
+        Debug.Log(talkTimer);
+
         //logica: parem als dos personatges durant 4 segons i despres cadascu marxa a fer wander
-        talkTimer = Time.deltaTime;
-        if (talkTimer <= 4f)
+        if (Vector3.Distance(robber.transform.position, cop.transform.position) <= 3f)
         {
-            Debug.Log(talkTimer);
+            talkTimer += Time.deltaTime;
+
+            if (talkTimer <= 4f)
+            {
+                afterTimer = 0;
+                robber.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+                cop.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+            }
+            else
+            {
+                afterTimer += Time.deltaTime;
+
+                if(afterTimer >= 15.0f)
+                {
+                    talkTimer = 0.0f;
+                }
+            }
+
             return TaskStatus.RUNNING;
         }
         else

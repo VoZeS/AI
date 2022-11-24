@@ -15,11 +15,9 @@ public class SeekElderAction : BasePrimitiveAction
     public GameObject blackboard;
 
     //En aquest script hem de posar el target agafantlo del blackboaard on hem creat el bubblesort
-    
-
     public override TaskStatus OnUpdate()
     {
-        
+
         Seek_NavMesh seek = seeker.GetComponent<Seek_NavMesh>();
 
         Behaviorblackboard bhblackboard = blackboard.GetComponent<Behaviorblackboard>();
@@ -27,17 +25,13 @@ public class SeekElderAction : BasePrimitiveAction
         bhblackboard.SeekClosestElder();
 
         seek.Seek(bhblackboard.allElders[0]);
-
-        if (Vector3.Distance(seeker.transform.position, bhblackboard.allElders[0].transform.position) <= 3.0f)
-        {
-            //bhblackboard.timer += Time.deltaTime;
-
-        }
-        else if (Vector3.Distance(seeker.transform.position, bhblackboard.allElders[0].transform.position) > 3.0f)
-        { }
-            //bhblackboard.timer = 0;
-
        
+        if (Vector3.Distance(seeker.transform.position, bhblackboard.allElders[0].transform.position) > 3.0f)
+        {
+            bhblackboard.timer = 0;
+        }
+
+
         return TaskStatus.RUNNING;
     }
 }

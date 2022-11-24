@@ -10,7 +10,6 @@ public class thiefSeesPolicemanCondition : ConditionBase
     [InParam("blackboard")]
     public GameObject blackboard;
 
-
     public override bool Check()
     {
         GameObject thief = GameObject.Find("Robber");
@@ -18,14 +17,16 @@ public class thiefSeesPolicemanCondition : ConditionBase
 
         Behaviorblackboard bhblackboard = blackboard.GetComponent<Behaviorblackboard>();
 
-
-        if (Vector3.Distance(thief.transform.position, policeman.transform.position) >= 15f && bhblackboard.timer<=3f)
+        if (Vector3.Distance(thief.transform.position, policeman.transform.position) >= 15f && bhblackboard.timer <= 3f && !bhblackboard.hasRobbed)
         {
-
+            bhblackboard.timer += Time.deltaTime;
             return true;
         }
-            
-        else
-            return false;
+        else if(bhblackboard.timer > 3f && !bhblackboard.hasRobbed)
+        {
+            bhblackboard.hasRobbed = true;
+        }
+        return false;
+
     }
 }
