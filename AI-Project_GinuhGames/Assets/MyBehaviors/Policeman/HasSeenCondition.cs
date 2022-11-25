@@ -11,26 +11,18 @@ public class HasSeenCondition : ConditionBase
     [InParam("blackboard")]
     public GameObject blackboard;
 
-    Behaviorblackboard bhblackboard = blackboard.GetComponent<Behaviorblackboard>();
 
     public override bool Check()
     {
         GameObject policeman = GameObject.Find("Cop");
         GameObject thief = GameObject.Find("Robber");
 
+        Behaviorblackboard bhblackboard = blackboard.GetComponent<Behaviorblackboard>();
 
-        //nom_de_classe nom_variable=blackboard.GetComponent<nom del archiu>();
-        if (bhblackboard.isRobbing && Vector3.Distance(policeman.transform.position, thief.transform.position) < 10f)
+        if (bhblackboard.hasRobbed && Vector3.Distance(policeman.transform.position, thief.transform.position) <= 15f)
             return true;
         else
             return false;
-
-        //if(bool robber is active && cop is near (the return line with more distance)
-        
-        //return true
-
-        //else return false
-        
         
     }
 }

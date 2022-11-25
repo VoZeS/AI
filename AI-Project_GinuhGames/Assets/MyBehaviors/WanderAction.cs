@@ -28,16 +28,27 @@ public class Wander : BasePrimitiveAction
 
         if (bhblackboard.hasRobbed)
         {
+            wander.WanderBehavior(agent, wanderAgent);
+
             bhblackboard.timer = 0;
 
             timerRob += Time.deltaTime;
 
-            if(timerRob >= 10.0f)
+            if (timerRob >= 10.0f)
+            {
                 bhblackboard.hasRobbed = false;
-        }
-        //Debug.Log(bhblackboard.timer);
 
-        wander.WanderBehavior(agent,wanderAgent);
+            }
+        }
+        else
+        {
+            timerRob = 0.0f;
+
+        }
+
+        wander.WanderBehavior(agent, wanderAgent);
+
+        //Debug.Log(bhblackboard.timer);
 
         return TaskStatus.RUNNING;
     }

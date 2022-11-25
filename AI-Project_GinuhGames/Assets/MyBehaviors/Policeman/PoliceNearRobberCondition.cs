@@ -7,10 +7,21 @@ using Pada1.BBCore.Framework;
 [Help("Checks whether policeman is besides thief.")]
 public class PoliceNearRobberCondition : ConditionBase
 {
+    [InParam("blackboard")]
+    public GameObject blackboard;
     public override bool Check()
     {
         GameObject thief = GameObject.Find("Robber");
         GameObject policeman = GameObject.Find("Cop");
-        return Vector3.Distance(thief.transform.position, policeman.transform.position) < 2f;
+
+        Behaviorblackboard bhblackboard = blackboard.GetComponent<Behaviorblackboard>();
+
+        if (Vector3.Distance(thief.transform.position, policeman.transform.position) < 2f)
+        {
+            bhblackboard.hasRobbed = false;
+            return true;
+
+        }
+        return false;
     }
 }

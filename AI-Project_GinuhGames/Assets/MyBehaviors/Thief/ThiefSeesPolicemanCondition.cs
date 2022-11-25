@@ -20,14 +20,13 @@ public class thiefSeesPolicemanCondition : ConditionBase
         if (Vector3.Distance(thief.transform.position, policeman.transform.position) >= 15f && bhblackboard.timer <= 3f && !bhblackboard.hasRobbed)
         {
             bhblackboard.timer += Time.deltaTime;
-
             return true;
         }
-        else if(bhblackboard.timer > 3f && !bhblackboard.hasRobbed)
+        else
         {
             bhblackboard.robberText.gameObject.SetActive(false);
             bhblackboard.hasRobbed = true;
-            
+
         }
         return false;
 

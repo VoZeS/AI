@@ -26,7 +26,7 @@ public class SeekElderAction : BasePrimitiveAction
 
         bhblackboard.robberText.gameObject.SetActive(true);
 
-        bhblackboard.isRobbing=true;
+        //bhblackboard.isRobbing=true;
         bhblackboard.SeekClosestElder();
 
         seek.Seek(bhblackboard.allElders[0]);
@@ -34,7 +34,7 @@ public class SeekElderAction : BasePrimitiveAction
         if (Vector3.Distance(seeker.transform.position, bhblackboard.allElders[0].transform.position) > 3.0f)
         {
             bhblackboard.robberText.gameObject.SetActive(false);
-            bhblackboard.isRobbing = false;
+            //bhblackboard.isRobbing = false;
             bhblackboard.timer = 0;
         }
 

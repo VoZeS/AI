@@ -16,7 +16,7 @@ public class Behaviorblackboard : MonoBehaviour
     public GameObject policeText;
     public float timer = 0;
     public bool hasRobbed = false;
-    public bool isRobbing = false;
+    //public bool isRobbing = false;
     
     public void SeekClosestElder()
     {

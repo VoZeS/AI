@@ -28,6 +28,8 @@ public class TrafficLightsLogic : MonoBehaviour
     public NavMeshAgent elder5;
     public NavMeshAgent father;
     public NavMeshAgent son;
+    public NavMeshAgent cop;
+    public NavMeshAgent robber;
 
     private float timer;
     // Start is called before the first frame update
@@ -85,6 +87,8 @@ public class TrafficLightsLogic : MonoBehaviour
             elder5.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             father.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             son.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            cop.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            robber.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
 
             if (timer >= 5)
             {
@@ -125,6 +129,8 @@ public class TrafficLightsLogic : MonoBehaviour
             elder5.areaMask = NavMesh.AllAreas;
             father.areaMask = NavMesh.AllAreas;
             son.areaMask = NavMesh.AllAreas;
+            cop.areaMask = NavMesh.AllAreas;
+            robber.areaMask = NavMesh.AllAreas;
 
             if (timer >= 5 &&
                 (NavMesh.SamplePosition(blueRunner.transform.position, out NavMeshHit blueHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
@@ -135,7 +141,9 @@ public class TrafficLightsLogic : MonoBehaviour
                    && (NavMesh.SamplePosition(elder4.transform.position, out NavMeshHit elder4Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
                     && (NavMesh.SamplePosition(elder5.transform.position, out NavMeshHit elder5Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
                      && (NavMesh.SamplePosition(father.transform.position, out NavMeshHit fatherHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
-                      && (NavMesh.SamplePosition(son.transform.position, out NavMeshHit sonHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))))
+                      && (NavMesh.SamplePosition(son.transform.position, out NavMeshHit sonHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
+                      && (NavMesh.SamplePosition(cop.transform.position, out NavMeshHit copHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass")))
+                      && (NavMesh.SamplePosition(robber.transform.position, out NavMeshHit robberHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))))
             {
                 // PEDESTRIAN: Green Lights Off // Red Lights On
                 TL_Pedestrian_Green_L_Back.enabled = false;
