@@ -53,7 +53,7 @@ MonoBehaviour:
     />\r\n    </PrioritySelectorNode>\r\n    <NotDecorator id=\"11\">\r\n      <child>\r\n       
     <ConditionNode id=\"12\" />\r\n      </child>\r\n      <inputParams />\r\n     
     <outputParams />\r\n      <localParams />\r\n    </NotDecorator>\r\n    <ConditionEvalNode
-    id=\"10\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"MyConditions/The police
+    id=\"10\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"MyConditions/The police
     has seen the robbery?\">\r\n      <inputParams>\r\n        <inputValues>\r\n         
     <entry name=\"blackboard\" type=\"UnityEngine.GameObject\" isBlackboard=\"True\"
     blackboard=\"blackboard\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
