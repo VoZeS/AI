@@ -9,6 +9,7 @@ public class MachineLearningAgent : Agent
 {
     // Rigidbody rBody;
     CheckCollision checker;
+    public TrafficLightsLogic trafficLogic;
 
     public GameObject floor;
     Bounds floorBounds;
@@ -45,22 +46,18 @@ public class MachineLearningAgent : Agent
                 break;
             case 2:
                 Target.localPosition = new Vector3(93, -24.5f, 100);
-
                 break;
             case 3:
                 Target.localPosition = new Vector3(96, -24.5f, 70);
-
                 break;
             case 4:
                 Target.localPosition = new Vector3(45, -24.5f, 70);
                 break;
             case 6:
                 Target.localPosition = new Vector3(-20, -24.5f, 75);
-
                 break;
             case 7:
                 Target.localPosition = new Vector3(8, -24.5f, 83);
-
                 break;
             case 8:
                 Target.localPosition = new Vector3(35, -24.5f, 84);
@@ -116,13 +113,26 @@ public class MachineLearningAgent : Agent
             SetReward(1.0f);
             EndEpisode();
         }
-        else if (checker.isCurrentlyColliding)
+
+        // Has collided
+        if (checker.isCurrentlyColliding)
         {
+            AddReward(-0.2f);
+        }
+
+        // Crosses in RED
+        if (checker.isCurrentlyCollidingWithAsphalt 
+            && trafficLogic.TL_Pedestrian_Red_L_Back.enabled
+            && trafficLogic.TL_Pedestrian_Red_L_Front.enabled 
+            && trafficLogic.TL_Pedestrian_Red_R_Front.enabled
+            && trafficLogic.TL_Pedestrian_Red_R_Back.enabled)
+        {
+            Debug.Log("Crosses RED!!");
             AddReward(-0.1f);
         }
-        
+
         // Fell off platform
-        else if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
+        if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
         {
             EndEpisode();
         }
@@ -137,15 +147,15 @@ public class MachineLearningAgent : Agent
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = 0;
 
-        if(Input.GetKey(KeyCode.UpArrow))
+        if (Input.GetKey(KeyCode.UpArrow))
         {
             discreteActionsOut[0] = 1;
         }
-        else if(Input.GetKey(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             discreteActionsOut[0] = 2;
         }
-        else if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow))
         {
             discreteActionsOut[0] = 3;
         }

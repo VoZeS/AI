@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.45142937, g: 0.50064737, b: 0.57086295, a: 1}
+  m_IndirectSpecularColor: {r: 0.45142972, g: 0.5006478, b: 0.57086354, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -637,7 +637,7 @@ GameObject:
   - component: {fileID: 56802458}
   m_Layer: 0
   m_Name: Asphalt
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 1
   m_StaticEditorFlags: 95
@@ -3438,7 +3438,7 @@ GameObject:
   - component: {fileID: 269693789}
   m_Layer: 0
   m_Name: 5
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3916,7 +3916,7 @@ GameObject:
   - component: {fileID: 326875755}
   m_Layer: 0
   m_Name: 4
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4333,7 +4333,7 @@ GameObject:
   - component: {fileID: 347302299}
   m_Layer: 0
   m_Name: 5
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5863,7 +5863,7 @@ GameObject:
   - component: {fileID: 489075041}
   m_Layer: 0
   m_Name: 3
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7585,6 +7585,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
+  trafficLogic: {fileID: 0}
   floor: {fileID: 1392631780}
   Target: {fileID: 1307665148}
 --- !u!136 &688710385
@@ -7614,6 +7615,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isCurrentlyColliding: 0
+  isCurrentlyCollidingWithAsphalt: 0
 --- !u!54 &688710387
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -8002,7 +8004,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1067794905582885678, guid: 90a267eb4b1d4484898bef5666071ba5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.5
+      value: -24.535
       objectReference: {fileID: 0}
     - target: {fileID: 1067794905582885678, guid: 90a267eb4b1d4484898bef5666071ba5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8042,7 +8044,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1075948391855331002, guid: 90a267eb4b1d4484898bef5666071ba5, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1296948271010859249, guid: 90a267eb4b1d4484898bef5666071ba5, type: 3}
       propertyPath: m_Enabled
@@ -8684,7 +8686,7 @@ Transform:
   - {fileID: 930174223}
   - {fileID: 1351398241}
   m_Father: {fileID: 1824075055}
-  m_RootOrder: 55
+  m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &778950453
 PrefabInstance:
@@ -9095,7 +9097,7 @@ GameObject:
   - component: {fileID: 825901540}
   m_Layer: 0
   m_Name: 2
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10063,7 +10065,7 @@ GameObject:
   - component: {fileID: 911003402}
   m_Layer: 0
   m_Name: 1
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10328,7 +10330,7 @@ GameObject:
   - component: {fileID: 943338871}
   m_Layer: 0
   m_Name: 1
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10561,7 +10563,7 @@ GameObject:
   - component: {fileID: 960267801}
   m_Layer: 0
   m_Name: 2
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13916,7 +13918,7 @@ GameObject:
   - component: {fileID: 1296171890}
   m_Layer: 0
   m_Name: 4
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -19780,6 +19782,8 @@ Transform:
   - {fileID: 812730299}
   - {fileID: 1587223272}
   - {fileID: 1392631781}
+  - {fileID: 771186923}
+  - {fileID: 373805067}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -22835,7 +22839,7 @@ GameObject:
   - component: {fileID: 2032287340}
   m_Layer: 0
   m_Name: 3
-  m_TagString: floor
+  m_TagString: floorAsphalt
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

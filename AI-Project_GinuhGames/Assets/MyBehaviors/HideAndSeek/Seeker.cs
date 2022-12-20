@@ -41,7 +41,7 @@ public class Seeker : MonoBehaviour
             Counting();
         else
         {
-            Debug.Log("Is Wandering");
+            //Debug.Log("Is Wandering");
             Wander();
         }
             
@@ -95,13 +95,13 @@ public class Seeker : MonoBehaviour
         if (agent.velocity == new Vector3(0, 0, 0) && countTimer < 10f)
         {
             countTimer += Time.deltaTime;
-            Debug.Log(countTimer);
+            //Debug.Log(countTimer);
             
 
         }
         if (countTimer >= 10f)
         {
-            Debug.Log("Finished Counting");
+           //Debug.Log("Finished Counting");
             hasTocount = false;
 
         }

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - hide
   - floor
+  - floorAsphalt
   layers:
   - Default
   - TransparentFX
