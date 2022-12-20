@@ -7,20 +7,26 @@ using Unity.MLAgents.Actuators;
 
 public class MachineLearningAgent : Agent
 {
-   // Rigidbody rBody;
+    // Rigidbody rBody;
+    CheckCollision checker;
+
+    public GameObject floor;
+    Bounds floorBounds;
 
     private int targetRandomPos = 0;
 
     void Start()
     {
         //rBody = GetComponent<Rigidbody>();
+        checker = GetComponent<CheckCollision>();
+        floorBounds = new Bounds(floor.transform.position - new Vector3(-8, 0, 8), new Vector3(140, 20, 50));
     }
 
     public Transform Target;
     public override void OnEpisodeBegin()
     {
         // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < -25.5f)
+        if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
         {
             //this.rBody.angularVelocity = Vector3.zero;
             //this.rBody.velocity = Vector3.zero;
@@ -32,52 +38,35 @@ public class MachineLearningAgent : Agent
         switch (targetRandomPos)
         {
             case 0:
-                Target.localPosition = new Vector3(0,
-                                            -24.5f,
-                                            100);
+                Target.localPosition = new Vector3(0, -24.5f, 100);
                 break;
             case 1:
-                Target.localPosition = new Vector3(45,
-                                           -24.5f,
-                                           85);
+                Target.localPosition = new Vector3(45, -24.5f, 85);
                 break;
             case 2:
-                Target.localPosition = new Vector3(93,
-                                           -24.5f,
-                                           100);
+                Target.localPosition = new Vector3(93, -24.5f, 100);
 
                 break;
             case 3:
-                Target.localPosition = new Vector3(96,
-                                           -24.5f,
-                                           70);
+                Target.localPosition = new Vector3(96, -24.5f, 70);
 
                 break;
             case 4:
-                Target.localPosition = new Vector3(45,
-                                           -24.5f,
-                                           70);
+                Target.localPosition = new Vector3(45, -24.5f, 70);
                 break;
             case 6:
-                Target.localPosition = new Vector3(-20,
-                                            -24.5f,
-                                            75);
+                Target.localPosition = new Vector3(-20, -24.5f, 75);
 
                 break;
             case 7:
-                Target.localPosition = new Vector3(8,
-                                           -24.5f,
-                                           83);
+                Target.localPosition = new Vector3(8, -24.5f, 83);
 
                 break;
             case 8:
-                Target.localPosition = new Vector3(35,
-                                           -24.5f,
-                                           84);
-
+                Target.localPosition = new Vector3(35, -24.5f, 84);
                 break;
             default:
-                targetRandomPos = Random.Range(0,8);
+                targetRandomPos = Random.Range(0, 8);
                 break;
         }
     }
@@ -92,7 +81,7 @@ public class MachineLearningAgent : Agent
         sensor.AddObservation(transform.forward.z);
     }
 
-    public float forceMultiplier = 10;
+    //public float forceMultiplier = 10;
     public override void OnActionReceived(ActionBuffers actionBuffers)
     {
         // Actions, size = 2
@@ -106,13 +95,13 @@ public class MachineLearningAgent : Agent
             case 0:
                 break;
             case 1:
-                transform.Translate(0, 0, 200f * Time.deltaTime);
+                transform.Translate(0, 0, 8f * Time.deltaTime);
                 break;
             case 2:
-                transform.Rotate(0, -50 * Time.deltaTime, 0);
+                transform.Rotate(0, -100 * Time.deltaTime, 0);
                 break;
             case 3:
-                transform.Rotate(0, 50 * Time.deltaTime, 0);
+                transform.Rotate(0, 100 * Time.deltaTime, 0);
                 break;
             default:
                 break;
@@ -127,9 +116,13 @@ public class MachineLearningAgent : Agent
             SetReward(1.0f);
             EndEpisode();
         }
-
+        else if (checker.isCurrentlyColliding)
+        {
+            AddReward(-0.1f);
+        }
+        
         // Fell off platform
-        else if (this.transform.localPosition.y < -25.5f)
+        else if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
         {
             EndEpisode();
         }
@@ -144,15 +137,15 @@ public class MachineLearningAgent : Agent
         var discreteActionsOut = actionsOut.DiscreteActions;
         discreteActionsOut[0] = 0;
 
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKey(KeyCode.UpArrow))
         {
             discreteActionsOut[0] = 1;
         }
-        else if(Input.GetKeyDown(KeyCode.LeftArrow))
+        else if(Input.GetKey(KeyCode.LeftArrow))
         {
             discreteActionsOut[0] = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             discreteActionsOut[0] = 3;
         }
