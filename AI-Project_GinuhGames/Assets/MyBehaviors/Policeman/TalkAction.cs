@@ -26,8 +26,8 @@ public class TalkAction : BasePrimitiveAction
         NavMeshAgent cop = policeman.GetComponent<NavMeshAgent>();
         Behaviorblackboard blackboardText = blackboard.GetComponent<Behaviorblackboard>();
 
-        Debug.Log("talktimer");
-        Debug.Log(talkTimer);
+        //Debug.Log("talktimer");
+        //Debug.Log(talkTimer);
 
         //logica: parem als dos personatges durant 4 segons i despres cadascu marxa a fer wander
         if (Vector3.Distance(robber.transform.position, cop.transform.position) <= 3f)

@@ -18,6 +18,7 @@ public class Seeker : MonoBehaviour
     private float countTimer = 0.0f;
     private Vector3 countPos = new Vector3(51.2f, 1.05f, -20.12f);
     private bool hasTocount = true;
+    
 
 
     // Start is called before the first frame update
@@ -39,12 +40,17 @@ public class Seeker : MonoBehaviour
         if (hasTocount)
             Counting();
         else
+        {
+            Debug.Log("Is Wandering");
             Wander();
+        }
+            
     }
 
     public void Wander()
     {
         watchTimer += Time.deltaTime;
+        
 
         if (wandering)
         {
@@ -85,13 +91,21 @@ public class Seeker : MonoBehaviour
     {
         agent.destination = countPos;
 
-        if (agent.transform.position == countPos && countTimer < 10)
+
+        if (agent.velocity == new Vector3(0, 0, 0) && countTimer < 10f)
         {
             countTimer += Time.deltaTime;
+            Debug.Log(countTimer);
+            
 
         }
-        if (countTimer >= 10)
+        if (countTimer >= 10f)
+        {
+            Debug.Log("Finished Counting");
             hasTocount = false;
+
+        }
+            
     }
     
 
