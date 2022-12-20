@@ -7585,7 +7585,7 @@ MonoBehaviour:
     maxStep: 0
   hasUpgradedFromAgentParameters: 1
   MaxStep: 0
-  trafficLogic: {fileID: 0}
+  trafficLogic: {fileID: 506156931}
   floor: {fileID: 1392631780}
   Target: {fileID: 1307665148}
 --- !u!136 &688710385
@@ -7631,7 +7631,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 126
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!1001 &701383440
 PrefabInstance:
   m_ObjectHideFlags: 0
