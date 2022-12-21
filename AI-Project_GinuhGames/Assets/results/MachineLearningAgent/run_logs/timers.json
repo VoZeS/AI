@@ -1,0 +1,49 @@
+{
+    "name": "root",
+    "metadata": {
+        "timer_format_version": "0.1.0",
+        "start_time_seconds": "1671579345",
+        "python_version": "3.6.13 |Anaconda, Inc.| (default, Mar 16 2021, 11:37:27) [MSC v.1916 64 bit (AMD64)]",
+        "command_line_arguments": "C:\\Users\\david\\anaconda3\\envs\\ParkEnvironment\\Scripts\\mlagents-learn config/machinelearningagent_config.yaml --run-id=MachineLearningAgent --resume",
+        "mlagents_version": "0.28.0",
+        "mlagents_envs_version": "0.28.0",
+        "communication_protocol_version": "1.5.0",
+        "pytorch_version": "1.10.2+cpu",
+        "numpy_version": "1.19.5",
+        "end_time_seconds": "1671579353"
+    },
+    "total": 8.519512899999999,
+    "count": 1,
+    "self": 0.0078079999999971506,
+    "children": {
+        "run_training.setup": {
+            "total": 0.08988030000000001,
+            "count": 1,
+            "self": 0.08988030000000001
+        },
+        "TrainerController.start_learning": {
+            "total": 8.4218246,
+            "count": 1,
+            "self": 9.560000000163882e-05,
+            "children": {
+                "TrainerController._reset_env": {
+                    "total": 8.3050889,
+                    "count": 1,
+                    "self": 8.3050889
+                },
+                "TrainerController._save_models": {
+                    "total": 0.11664009999999969,
+                    "count": 1,
+                    "self": 0.021133499999999472,
+                    "children": {
+                        "RLTrainer._checkpoint": {
+                            "total": 0.09550660000000022,
+                            "count": 1,
+                            "self": 0.09550660000000022
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

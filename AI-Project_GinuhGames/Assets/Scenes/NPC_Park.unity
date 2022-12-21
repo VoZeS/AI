@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_Name
-      value: Zombie
+      value: Zombie1
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6084,6 +6084,11 @@ MonoBehaviour:
   son: {fileID: 1932167340}
   cop: {fileID: 1117712362}
   robber: {fileID: 177673294}
+  villager: {fileID: 895753625}
+  zombie1: {fileID: 1351398242}
+  zombie2: {fileID: 930174224}
+  zombie3: {fileID: 403720137}
+  witch: {fileID: 373805065}
 --- !u!4 &506156932
 Transform:
   m_ObjectHideFlags: 0
@@ -7546,10 +7551,10 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 74912f1155ab4c548b043a7946ade120, type: 3}
   m_InferenceDevice: 0
-  m_BehaviorType: 1
-  m_BehaviorName: MachineLearning
+  m_BehaviorType: 0
+  m_BehaviorName: MachineLearningAgent
   TeamId: 0
   m_UseChildSensors: 1
   m_UseChildActuators: 1
@@ -8682,9 +8687,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 403720136}
-  - {fileID: 930174223}
   - {fileID: 1351398241}
+  - {fileID: 930174223}
+  - {fileID: 403720136}
   m_Father: {fileID: 1824075055}
   m_RootOrder: 52
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -14968,7 +14973,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2924623395526550635, guid: 5089ee9d9a6d75c4d82b5a179f6aa3db, type: 3}
       propertyPath: m_RootOrder
-      value: 39
+      value: 38
       objectReference: {fileID: 0}
     - target: {fileID: 2924623395526550635, guid: 5089ee9d9a6d75c4d82b5a179f6aa3db, type: 3}
       propertyPath: m_LocalScale.x
@@ -18923,7 +18928,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 834898386707668609, guid: 410f339498f49a749bd263bb48817b91, type: 3}
       propertyPath: m_RootOrder
-      value: 56
+      value: 53
       objectReference: {fileID: 0}
     - target: {fileID: 834898386707668609, guid: 410f339498f49a749bd263bb48817b91, type: 3}
       propertyPath: m_LocalPosition.x
@@ -19768,8 +19773,8 @@ Transform:
   - {fileID: 1590573198}
   - {fileID: 1004803241}
   - {fileID: 530030898}
-  - {fileID: 1997445869}
   - {fileID: 1778909924}
+  - {fileID: 1997445869}
   - {fileID: 1972121123}
   - {fileID: 552526727}
   - {fileID: 506156932}
@@ -20290,7 +20295,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_Name
-      value: Zombie (1)
+      value: Zombie2
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
@@ -21748,11 +21753,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_Name
-      value: Zombie (2)
+      value: Zombie3
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_LocalPosition.x
@@ -22333,7 +22338,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1824075055}
-  m_RootOrder: 38
+  m_RootOrder: 39
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &2001909367
 PrefabInstance:

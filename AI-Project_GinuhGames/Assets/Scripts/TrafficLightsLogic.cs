@@ -30,6 +30,11 @@ public class TrafficLightsLogic : MonoBehaviour
     public NavMeshAgent son;
     public NavMeshAgent cop;
     public NavMeshAgent robber;
+    public NavMeshAgent villager;
+    public NavMeshAgent zombie1;
+    public NavMeshAgent zombie2;
+    public NavMeshAgent zombie3;
+    public NavMeshAgent witch;
 
     private float timer;
     // Start is called before the first frame update
@@ -62,8 +67,9 @@ public class TrafficLightsLogic : MonoBehaviour
     {
         timer += Time.deltaTime;
 
+
         // PEDESTRIAN: Green Lights Off // Red Lights On
-        if(TL_Pedestrian_Green_L_Back.enabled == false &&
+        if (TL_Pedestrian_Green_L_Back.enabled == false &&
         TL_Pedestrian_Green_L_Front.enabled == false &&
         TL_Pedestrian_Green_R_Front.enabled == false &&
         TL_Pedestrian_Green_R_Back.enabled == false &&
@@ -89,6 +95,11 @@ public class TrafficLightsLogic : MonoBehaviour
             son.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             cop.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
             robber.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            villager.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            zombie1.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            zombie2.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            zombie3.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
+            witch.areaMask = NavMesh.GetAreaFromName("PedestrianPass");
 
             if (timer >= 5)
             {
@@ -131,19 +142,25 @@ public class TrafficLightsLogic : MonoBehaviour
             son.areaMask = NavMesh.AllAreas;
             cop.areaMask = NavMesh.AllAreas;
             robber.areaMask = NavMesh.AllAreas;
+            villager.areaMask = NavMesh.AllAreas;
 
             if (timer >= 5 &&
-                (NavMesh.SamplePosition(blueRunner.transform.position, out NavMeshHit blueHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                || NavMesh.SamplePosition(redRunner.transform.position, out NavMeshHit redHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                || NavMesh.SamplePosition(elder.transform.position, out NavMeshHit elderHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                 || NavMesh.SamplePosition(elder2.transform.position, out NavMeshHit elder2Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                  || NavMesh.SamplePosition(elder3.transform.position, out NavMeshHit elder3Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                   || NavMesh.SamplePosition(elder4.transform.position, out NavMeshHit elder4Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                    || NavMesh.SamplePosition(elder5.transform.position, out NavMeshHit elder5Hit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                     || NavMesh.SamplePosition(father.transform.position, out NavMeshHit fatherHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                      || NavMesh.SamplePosition(son.transform.position, out NavMeshHit sonHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                      || NavMesh.SamplePosition(cop.transform.position, out NavMeshHit copHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))
-                      || NavMesh.SamplePosition(robber.transform.position, out NavMeshHit robberHit, 1.0f, NavMesh.GetAreaFromName("PedestrianPass"))))
+                NavMesh.SamplePosition(blueRunner.transform.position, out NavMeshHit blueHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                && NavMesh.SamplePosition(redRunner.transform.position, out NavMeshHit redHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                && NavMesh.SamplePosition(elder.transform.position, out NavMeshHit elderHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                 && NavMesh.SamplePosition(elder2.transform.position, out NavMeshHit elder2Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                  && NavMesh.SamplePosition(elder3.transform.position, out NavMeshHit elder3Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                   && NavMesh.SamplePosition(elder4.transform.position, out NavMeshHit elder4Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                    && NavMesh.SamplePosition(elder5.transform.position, out NavMeshHit elder5Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                     && NavMesh.SamplePosition(father.transform.position, out NavMeshHit fatherHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(son.transform.position, out NavMeshHit sonHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(cop.transform.position, out NavMeshHit copHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(robber.transform.position, out NavMeshHit robberHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(villager.transform.position, out NavMeshHit villagerHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(zombie1.transform.position, out NavMeshHit zombie1Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(zombie2.transform.position, out NavMeshHit zombie2Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(zombie3.transform.position, out NavMeshHit zombie3Hit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass"))
+                      && NavMesh.SamplePosition(witch.transform.position, out NavMeshHit witchHit, 2.0f, NavMesh.GetAreaFromName("PedestrianPass")))
             {
                 // PEDESTRIAN: Green Lights Off // Red Lights On
                 TL_Pedestrian_Green_L_Back.enabled = false;
