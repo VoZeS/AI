@@ -1,29 +1,38 @@
 {
-    "metadata": {
-        "stats_format_version": "0.3.0",
-        "mlagents_version": "0.28.0",
-        "torch_version": "1.10.2+cpu"
-    },
     "MachineLearningAgent": {
         "checkpoints": [
             {
-                "steps": 0,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-0.onnx",
-                "reward": null,
-                "creation_time": 1671579353.8379438,
+                "steps": 499989,
+                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-499989.onnx",
+                "reward": -1.4377817246075106,
+                "creation_time": 1671609294.393964,
                 "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-0.pt"
+                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-499989.pt"
+                ]
+            },
+            {
+                "steps": 500002,
+                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-500002.onnx",
+                "reward": -1.4377163584669568,
+                "creation_time": 1671609294.4467916,
+                "auxillary_file_paths": [
+                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-500002.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 0,
+            "steps": 500002,
             "file_path": "results\\MachineLearningAgent\\MachineLearningAgent.onnx",
-            "reward": null,
-            "creation_time": 1671579353.8379438,
+            "reward": -1.4377163584669568,
+            "creation_time": 1671609294.4467916,
             "auxillary_file_paths": [
-                "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-0.pt"
+                "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-500002.pt"
             ]
         }
+    },
+    "metadata": {
+        "stats_format_version": "0.3.0",
+        "mlagents_version": "0.28.0",
+        "torch_version": "1.10.2+cpu"
     }
 }

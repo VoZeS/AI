@@ -31,7 +31,7 @@ public class MachineLearningAgent : Agent
         {
             //this.rBody.angularVelocity = Vector3.zero;
             //this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3(-25.0f, -24.5f, 87.5f);
+            this.transform.localPosition = new Vector3(-9f, -24.5f, 82.5f);
         }
 
         targetRandomPos = Random.Range(0, 8);
@@ -95,10 +95,10 @@ public class MachineLearningAgent : Agent
                 transform.Translate(0, 0, 8f * Time.deltaTime);
                 break;
             case 2:
-                transform.Rotate(0, -100 * Time.deltaTime, 0);
+                transform.Rotate(0, -200 * Time.deltaTime, 0);
                 break;
             case 3:
-                transform.Rotate(0, 100 * Time.deltaTime, 0);
+                transform.Rotate(0, 200 * Time.deltaTime, 0);
                 break;
             default:
                 break;

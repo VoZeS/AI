@@ -9,7 +9,10 @@ public class CheckCollision : MonoBehaviour
     void OnCollisionEnter(Collision col)
     {
         if (col.gameObject.tag != "floor" && col.gameObject.tag != "floorAsphalt")
+        {
             isCurrentlyColliding = true;
+
+        }
 
         if (col.gameObject.tag == "floorAsphalt")
             isCurrentlyCollidingWithAsphalt = true;
@@ -28,9 +31,9 @@ public class CheckCollision : MonoBehaviour
         //{
         //    Debug.Log("Asphalt!");
         //}
-        //if (isCurrentlyColliding)
-        //{
-        //    Debug.Log("Ccol!");
-        //}
+        if (isCurrentlyColliding)
+        {
+            Debug.Log("Colliding!");
+        }
     }
 }

@@ -2,31 +2,58 @@
     "MachineLearningAgent": {
         "checkpoints": [
             {
-                "steps": 499997,
-                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-499997.onnx",
+                "steps": 499948,
+                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-499948.onnx",
                 "reward": null,
-                "creation_time": 1671586443.476758,
+                "creation_time": 1671677715.3167207,
                 "auxillary_file_paths": [
-                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-499997.pt"
+                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-499948.pt"
                 ]
             },
             {
-                "steps": 500010,
-                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-500010.onnx",
-                "reward": -1.4000000953674316,
-                "creation_time": 1671586443.538593,
+                "steps": 999980,
+                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-999980.onnx",
+                "reward": null,
+                "creation_time": 1671686217.8908463,
                 "auxillary_file_paths": [
-                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-500010.pt"
+                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-999980.pt"
+                ]
+            },
+            {
+                "steps": 1499948,
+                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-1499948.onnx",
+                "reward": null,
+                "creation_time": 1671695153.1024814,
+                "auxillary_file_paths": [
+                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-1499948.pt"
+                ]
+            },
+            {
+                "steps": 1999938,
+                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-1999938.onnx",
+                "reward": null,
+                "creation_time": 1671704663.9365287,
+                "auxillary_file_paths": [
+                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-1999938.pt"
+                ]
+            },
+            {
+                "steps": 2283394,
+                "file_path": "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-2283394.onnx",
+                "reward": null,
+                "creation_time": 1671712928.6508076,
+                "auxillary_file_paths": [
+                    "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-2283394.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 500010,
+            "steps": 2283394,
             "file_path": "results\\ppo\\MachineLearningAgent.onnx",
-            "reward": -1.4000000953674316,
-            "creation_time": 1671586443.538593,
+            "reward": null,
+            "creation_time": 1671712928.6508076,
             "auxillary_file_paths": [
-                "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-500010.pt"
+                "results\\ppo\\MachineLearningAgent\\MachineLearningAgent-2283394.pt"
             ]
         }
     },
