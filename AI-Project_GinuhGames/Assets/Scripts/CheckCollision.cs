@@ -35,5 +35,6 @@ public class CheckCollision : MonoBehaviour
         {
             Debug.Log("Colliding!");
         }
+
     }
 }

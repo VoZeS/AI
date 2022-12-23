@@ -7,7 +7,7 @@ using Unity.MLAgents.Actuators;
 
 public class MachineLearningAgent : Agent
 {
-    // Rigidbody rBody;
+    Rigidbody rBody;
     CheckCollision checker;
     public TrafficLightsLogic trafficLogic;
 
@@ -16,9 +16,13 @@ public class MachineLearningAgent : Agent
 
     private int targetRandomPos = 0;
 
+    private Vector3 lastUpdatePos = Vector3.zero;
+    private Vector3 dist;
+    private float curentSpeed;
+
     void Start()
     {
-        //rBody = GetComponent<Rigidbody>();
+        rBody = GetComponent<Rigidbody>();
         checker = GetComponent<CheckCollision>();
         floorBounds = new Bounds(floor.transform.position - new Vector3(-8, 0, 8), new Vector3(140, 20, 50));
     }
@@ -73,7 +77,7 @@ public class MachineLearningAgent : Agent
         sensor.AddObservation(Target.localPosition);
         sensor.AddObservation(this.transform.localPosition);
 
-        //Agent velocity
+        //Agent forward
         sensor.AddObservation(transform.forward.x);
         sensor.AddObservation(transform.forward.z);
     }
@@ -131,9 +135,23 @@ public class MachineLearningAgent : Agent
             AddReward(-0.1f);
         }
 
+        // Is Stopped
+        dist = transform.position - lastUpdatePos;
+        curentSpeed = dist.magnitude / Time.deltaTime;
+        lastUpdatePos = transform.position;
+
+        //Debug.Log(gameObject.name + " movement speed is:" + curentSpeed);
+
+        if (curentSpeed == 0.0f)
+        {
+            AddReward(-0.05f);
+        }
+
         // Fell off platform
         if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
         {
+            Debug.Log("Reward is -1");
+            SetReward(-1.0f);
             EndEpisode();
         }
     }
