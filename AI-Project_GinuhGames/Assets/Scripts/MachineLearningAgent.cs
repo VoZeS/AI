@@ -20,6 +20,8 @@ public class MachineLearningAgent : Agent
     private Vector3 dist;
     private float curentSpeed;
 
+    public float rayDist;
+
     void Start()
     {
         rBody = GetComponent<Rigidbody>();
@@ -119,19 +121,62 @@ public class MachineLearningAgent : Agent
         }
 
         // Has collided
-        if (checker.isCurrentlyColliding)
+
+        RaycastHit rayHit;
+
+        if (Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward, out rayHit, rayDist, LayerMask.GetMask("Obstacle"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right, out rayHit, rayDist, LayerMask.GetMask("Obstacle"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward, out rayHit, rayDist, LayerMask.GetMask("Obstacle"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right, out rayHit, rayDist, LayerMask.GetMask("Obstacle")))
         {
+            
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward * rayDist, Color.red);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right * rayDist, Color.red);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.red);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.red);
+            
             AddReward(-0.2f);
+
+        }
+        else
+        {
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward * rayDist, Color.green);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right * rayDist, Color.green);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.green);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.green);
+
         }
 
+        //if (checker.isCurrentlyColliding)
+        //{
+        //    AddReward(-0.2f);
+        //}
+
         // Crosses in RED
-        if (checker.isCurrentlyCollidingWithAsphalt 
+        //if (checker.isCurrentlyCollidingWithAsphalt 
+        //    && trafficLogic.TL_Pedestrian_Red_L_Back.enabled
+        //    && trafficLogic.TL_Pedestrian_Red_L_Front.enabled 
+        //    && trafficLogic.TL_Pedestrian_Red_R_Front.enabled
+        //    && trafficLogic.TL_Pedestrian_Red_R_Back.enabled)
+        //{
+        //    Debug.Log("Crosses RED!!");
+        //    AddReward(-0.1f);
+        //}
+        
+        if ((Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass"))
+            || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass")))
             && trafficLogic.TL_Pedestrian_Red_L_Back.enabled
-            && trafficLogic.TL_Pedestrian_Red_L_Front.enabled 
+            && trafficLogic.TL_Pedestrian_Red_L_Front.enabled
             && trafficLogic.TL_Pedestrian_Red_R_Front.enabled
             && trafficLogic.TL_Pedestrian_Red_R_Back.enabled)
         {
-            Debug.Log("Crosses RED!!");
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward * rayDist, Color.yellow);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right * rayDist, Color.yellow);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.yellow);
+            Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.yellow);
+
             AddReward(-0.1f);
         }
 

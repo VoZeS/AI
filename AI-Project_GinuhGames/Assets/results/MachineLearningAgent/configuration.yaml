@@ -4,7 +4,7 @@ behaviors:
     trainer_type: ppo
     hyperparameters:
       batch_size: 64
-      buffer_size: 12000
+      buffer_size: 8192
       learning_rate: 0.0003
       beta: 0.0005
       epsilon: 0.2
@@ -14,7 +14,7 @@ behaviors:
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
-      normalize: false
+      normalize: true
       hidden_units: 256
       num_layers: 3
       vis_encode_type: simple

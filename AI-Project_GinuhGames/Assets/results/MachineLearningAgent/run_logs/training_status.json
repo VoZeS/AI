@@ -2,58 +2,31 @@
     "MachineLearningAgent": {
         "checkpoints": [
             {
-                "steps": 1499999,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-1499999.onnx",
-                "reward": null,
-                "creation_time": 1671762661.3005414,
+                "steps": 499986,
+                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-499986.onnx",
+                "reward": -15.013731884465338,
+                "creation_time": 1671887844.1623745,
                 "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-1499999.pt"
+                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-499986.pt"
                 ]
             },
             {
-                "steps": 1999967,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-1999967.onnx",
-                "reward": null,
-                "creation_time": 1671770987.3469622,
+                "steps": 510228,
+                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-510228.onnx",
+                "reward": -15.027661485874907,
+                "creation_time": 1671887996.5840514,
                 "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-1999967.pt"
-                ]
-            },
-            {
-                "steps": 2499999,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-2499999.onnx",
-                "reward": null,
-                "creation_time": 1671779794.3068566,
-                "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-2499999.pt"
-                ]
-            },
-            {
-                "steps": 2999967,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-2999967.onnx",
-                "reward": null,
-                "creation_time": 1671789081.172273,
-                "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-2999967.pt"
-                ]
-            },
-            {
-                "steps": 3000031,
-                "file_path": "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-3000031.onnx",
-                "reward": null,
-                "creation_time": 1671789081.233103,
-                "auxillary_file_paths": [
-                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-3000031.pt"
+                    "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-510228.pt"
                 ]
             }
         ],
         "final_checkpoint": {
-            "steps": 3000031,
+            "steps": 510228,
             "file_path": "results\\MachineLearningAgent\\MachineLearningAgent.onnx",
-            "reward": null,
-            "creation_time": 1671789081.233103,
+            "reward": -15.027661485874907,
+            "creation_time": 1671887996.5840514,
             "auxillary_file_paths": [
-                "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-3000031.pt"
+                "results\\MachineLearningAgent\\MachineLearningAgent\\MachineLearningAgent-510228.pt"
             ]
         }
     },
