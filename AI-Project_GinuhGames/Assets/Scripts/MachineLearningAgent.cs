@@ -135,7 +135,7 @@ public class MachineLearningAgent : Agent
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.red);
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.red);
             
-            AddReward(-0.2f);
+            AddReward(-0.02f);
 
         }
         else
@@ -177,7 +177,7 @@ public class MachineLearningAgent : Agent
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.yellow);
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.yellow);
 
-            AddReward(-0.1f);
+            AddReward(-0.01f);
         }
 
         // Is Stopped
@@ -189,7 +189,7 @@ public class MachineLearningAgent : Agent
 
         if (curentSpeed == 0.0f)
         {
-            AddReward(-0.05f);
+            AddReward(-0.005f);
         }
 
         // Fell off platform
