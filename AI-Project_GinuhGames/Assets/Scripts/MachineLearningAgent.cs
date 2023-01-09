@@ -12,7 +12,8 @@ public class MachineLearningAgent : Agent
     public TrafficLightsLogic trafficLogic;
 
     public GameObject floor;
-    Bounds floorBounds;
+    Bounds floorComplexBounds;
+    Bounds floorSimpleBounds;
 
     private int targetRandomPos = 0;
 
@@ -26,53 +27,83 @@ public class MachineLearningAgent : Agent
     {
         rBody = GetComponent<Rigidbody>();
         checker = GetComponent<CheckCollision>();
-        floorBounds = new Bounds(floor.transform.position - new Vector3(-8, 0, 8), new Vector3(140, 20, 50));
+        floorComplexBounds = new Bounds(floor.transform.position - new Vector3(-8, 0, 8), new Vector3(140, 20, 50));
+        floorSimpleBounds = new Bounds(new Vector3(-25f, 0, -15f), new Vector3(10, 20, 10));
+
     }
 
     public Transform Target;
     public override void OnEpisodeBegin()
     {
         // If the Agent fell, zero its momentum
-        if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
+        if (this.transform.localPosition.y < -25.5f || !floorSimpleBounds.Contains(this.transform.position))
         {
             //this.rBody.angularVelocity = Vector3.zero;
             //this.rBody.velocity = Vector3.zero;
-            this.transform.localPosition = new Vector3(-9f, -24.5f, 82.5f);
+
+            // ----------------------------------------------------------------------- Big Complexity
+            //this.transform.localPosition = new Vector3(-9f, -24.5f, 82.5f);
+
+            // ----------------------------------------------------------------------- Small Complexity
+            this.transform.localPosition = new Vector3(-16.5f, -24.5f, 70.0f);
+
         }
 
-        targetRandomPos = Random.Range(0, 8);
+        targetRandomPos = Random.Range(0, 3);
 
+        // ----------------------------------------------------------------------- Big Complexity
+        // switch (targetRandomPos)
+        // {
+        //     case 0:
+        //         Target.localPosition = new Vector3(0, -24.5f, 100);
+        //         break;
+        //     case 1:
+        //         Target.localPosition = new Vector3(45, -24.5f, 85);
+        //         break;
+        //     case 2:
+        //         Target.localPosition = new Vector3(93, -24.5f, 100);
+        //         break;
+        //     case 3:
+        //         Target.localPosition = new Vector3(96, -24.5f, 70);
+        //         break;
+        //     case 4:
+        //         Target.localPosition = new Vector3(45, -24.5f, 70);
+        //         break;
+        //     case 6:
+        //         Target.localPosition = new Vector3(-20, -24.5f, 75);
+        //         break;
+        //     case 7:
+        //         Target.localPosition = new Vector3(8, -24.5f, 83);
+        //         break;
+        //     case 8:
+        //         Target.localPosition = new Vector3(35, -24.5f, 84);
+        //         break;
+        //     default:
+        //         targetRandomPos = Random.Range(0, 8);
+        //         break;
+        // }
+
+        // ----------------------------------------------------------------------- Small Complexity
         switch (targetRandomPos)
         {
             case 0:
-                Target.localPosition = new Vector3(0, -24.5f, 100);
-                break;
-            case 1:
-                Target.localPosition = new Vector3(45, -24.5f, 85);
-                break;
-            case 2:
-                Target.localPosition = new Vector3(93, -24.5f, 100);
-                break;
-            case 3:
-                Target.localPosition = new Vector3(96, -24.5f, 70);
-                break;
-            case 4:
-                Target.localPosition = new Vector3(45, -24.5f, 70);
-                break;
-            case 6:
                 Target.localPosition = new Vector3(-20, -24.5f, 75);
                 break;
-            case 7:
-                Target.localPosition = new Vector3(8, -24.5f, 83);
+            case 1:
+                Target.localPosition = new Vector3(-12.5f, -24.5f, 75);
                 break;
-            case 8:
-                Target.localPosition = new Vector3(35, -24.5f, 84);
+            case 2:
+                Target.localPosition = new Vector3(-12.5f, -24.5f, 64);
+                break;
+            case 3:
+                Target.localPosition = new Vector3(-20, -24.5f, 64);
                 break;
             default:
-                targetRandomPos = Random.Range(0, 8);
+                targetRandomPos = Random.Range(0, 3);
                 break;
         }
     }
+
     public override void CollectObservations(VectorSensor sensor)
     {
         // Target and Agent positions
@@ -82,6 +113,9 @@ public class MachineLearningAgent : Agent
         //Agent forward
         sensor.AddObservation(transform.forward.x);
         sensor.AddObservation(transform.forward.z);
+
+        // Pedestrian Lights
+        //sensor.AddObservation();
     }
 
     //public float forceMultiplier = 10;
@@ -135,7 +169,7 @@ public class MachineLearningAgent : Agent
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.red);
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.red);
             
-            AddReward(-0.02f);
+            //AddReward(-0.02f);
 
         }
         else
@@ -162,6 +196,8 @@ public class MachineLearningAgent : Agent
         //    Debug.Log("Crosses RED!!");
         //    AddReward(-0.1f);
         //}
+
+        // Traffic Lights
         
         if ((Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.forward, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass"))
             || Physics.Raycast(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), this.transform.right, out rayHit, rayDist, LayerMask.GetMask("PedestrianPass"))
@@ -177,7 +213,7 @@ public class MachineLearningAgent : Agent
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.forward * rayDist, Color.yellow);
             Debug.DrawRay(this.transform.position - new Vector3(0.0f, 0.5f, 0.0f), -this.transform.right * rayDist, Color.yellow);
 
-            AddReward(-0.01f);
+            //AddReward(-0.01f);
         }
 
         // Is Stopped
@@ -193,12 +229,14 @@ public class MachineLearningAgent : Agent
         }
 
         // Fell off platform
-        if (this.transform.localPosition.y < -25.5f || !floorBounds.Contains(this.transform.position))
+        if (this.transform.localPosition.y < -25.5f || !floorSimpleBounds.Contains(this.transform.position))
         {
             Debug.Log("Reward is -1");
             SetReward(-1.0f);
             EndEpisode();
         }
+
+        Debug.DrawLine(floorSimpleBounds.min, floorSimpleBounds.max, Color.yellow);
     }
 
     public override void Heuristic(in ActionBuffers actionsOut)

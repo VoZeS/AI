@@ -46,14 +46,14 @@ MonoBehaviour:
     />\r\n          <entry name=\"Kicker\" type=\"UnityEngine.Transform\" isBlackboard=\"True\"
     blackboard=\"Boy\" />\r\n        </inputValues>\r\n      </inputParams>\r\n     
     <outputParams />\r\n      <localParams />\r\n    </ActionNode>\r\n    <ConditionEvalNode
-    id=\"26\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\" name=\"MyConditions/Is Ball Near
-    Boy?\">\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
+    id=\"26\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\" name=\"MyConditions/Is Ball
+    Near Boy?\">\r\n      <inputParams />\r\n      <outputParams />\r\n      <localParams
     />\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"12\" action=\"MyActions/Seek\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Seeker\" type=\"UnityEngine.GameObject\"
     isBlackboard=\"True\" blackboard=\"Boy\" />\r\n          <entry name=\"Tarjet\"
     type=\"UnityEngine.GameObject\" isBlackboard=\"True\" blackboard=\"Ball\" />\r\n       
     </inputValues>\r\n      </inputParams>\r\n      <outputParams />\r\n      <localParams
-    />\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"25\" policy=\"WAIT_UNTIL_TRUE_AND_COMPLETE\"
+    />\r\n    </ActionNode>\r\n    <ConditionEvalNode id=\"25\" policy=\"WAIT_UNTIL_FALSE_AND_FAIL\"
     name=\"AlwaysTrue\">\r\n      <inputParams />\r\n      <outputParams />\r\n     
     <localParams />\r\n    </ConditionEvalNode>\r\n    <ActionNode id=\"8\" action=\"MyActions/Seek\">\r\n     
     <inputParams>\r\n        <inputValues>\r\n          <entry name=\"Seeker\" type=\"UnityEngine.GameObject\"
