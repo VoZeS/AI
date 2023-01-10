@@ -158,6 +158,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
+      propertyPath: m_TagString
+      value: Hider
+      objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -5716,8 +5720,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ba7ff35cd59c64d9f94ca1d03818d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  found: 0
   hidingSpots: []
   target: {fileID: 373805064}
+  index: 0
 --- !u!4 &403720136 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
@@ -7640,6 +7646,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c1358e3471da43b6e87c549687237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 10
+  offset: 10
+  wandering: 0
+  watching: 0
 --- !u!114 &522808475
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7676,6 +7686,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce1c1358e3471da43b6e87c549687237, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 10
+  offset: 10
+  wandering: 0
+  watching: 0
 --- !u!1 &522822075 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1216435090000238643, guid: 34e776118e152b444ba6649c44b8b1c8, type: 3}
@@ -9337,9 +9351,9 @@ MonoBehaviour:
     VectorActionDescriptions: []
     VectorActionSpaceType: 0
     hasUpgradedBrainParametersWithActionSpec: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 11400000, guid: ace239a794155483188aa968ecd7d5ae, type: 3}
   m_InferenceDevice: 3
-  m_BehaviorType: 0
+  m_BehaviorType: 1
   m_BehaviorName: MachineLearningAgent
   TeamId: 0
   m_UseChildSensors: 1
@@ -10890,6 +10904,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 771186923}
+  - component: {fileID: 771186924}
   m_Layer: 0
   m_Name: Zombies
   m_TagString: Untagged
@@ -10915,6 +10930,70 @@ Transform:
   m_Father: {fileID: 1824075055}
   m_RootOrder: 53
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &771186924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771186922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 422fb6956201c7944ae2113a1a53b0b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxTasksPerTick: 500
+  behavior: {fileID: 11400000, guid: 4d232ea01f94fff40aae70d5c5e11c87, type: 2}
+  paused: 0
+  restartWhenFinished: 0
+  blackboard:
+    intParams: 
+    intParamsNames: []
+    intParamsLostDefaultValue: 
+    boolParams: 
+    boolParamsNames: []
+    boolParamsLostDefaultValue: 
+    floatParams: []
+    floatParamsNames: []
+    floatParamsLostDefaultValue: 
+    stringParams: []
+    stringParamsNames: []
+    stringParamsLostDefaultValue: 
+    colorParams: []
+    colorParamsNames: []
+    colorParamsLostDefaultValue: 
+    objectParams: []
+    objectParamsNames: []
+    objectParamsLostDefaultValue: 
+    layerMaskParams: []
+    layerMaskParamsNames: []
+    layerMaskParamsLostDefaultValue: 
+    enumParamsNames: []
+    enumParamsLostDefaultValue: 
+    vector2Params: []
+    vector2ParamsNames: []
+    vector2ParamsLostDefaultValue: 
+    vector3Params: []
+    vector3ParamsNames: []
+    vector3ParamsLostDefaultValue: 
+    vector4Params: []
+    vector4ParamsNames: []
+    vector4ParamsLostDefaultValue: 
+    rectParams: []
+    rectParamsNames: []
+    rectParamsLostDefaultValue: 
+    animationCurveParams: []
+    animationCurveParamsNames: []
+    animationCurveParamsLostDefaultValue: 
+    boundsParams: []
+    boundsParamsNames: []
+    boundsParamsLostDefaultValue: 
+    gradientParams: []
+    gradientParamsNames: []
+    gradientParamsLostDefaultValue: 
+    quaternionParams: []
+    quaternionParamsNames: []
+    quaternionParamsLostDefaultValue: 
 --- !u!1 &772557150 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4937023329829338345, guid: e1ad4dab8b77e5e4cb90b7caec4532ae, type: 3}
@@ -12837,8 +12916,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ba7ff35cd59c64d9f94ca1d03818d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  found: 0
   hidingSpots: []
   target: {fileID: 373805064}
+  index: 0
 --- !u!4 &930174223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
@@ -18077,8 +18158,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57ba7ff35cd59c64d9f94ca1d03818d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  found: 0
   hidingSpots: []
   target: {fileID: 373805064}
+  index: 0
 --- !u!4 &1351398241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
@@ -25746,6 +25829,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
+      propertyPath: m_TagString
+      value: Hider
+      objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -27652,6 +27739,10 @@ PrefabInstance:
     - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_Layer
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2456748712407318239, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
+      propertyPath: m_TagString
+      value: Hider
       objectReference: {fileID: 0}
     - target: {fileID: 2460943846190773067, guid: dc7e45f5f8f700449b1e5ee0e7fda889, type: 3}
       propertyPath: m_RootOrder
