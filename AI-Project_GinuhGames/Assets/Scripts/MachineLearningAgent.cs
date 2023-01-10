@@ -87,16 +87,16 @@ public class MachineLearningAgent : Agent
         switch (targetRandomPos)
         {
             case 0:
-                Target.localPosition = new Vector3(-20, -24.5f, 75);
+                Target.localPosition = new Vector3(-19, -24.5f, 66);
                 break;
             case 1:
-                Target.localPosition = new Vector3(-12.5f, -24.5f, 75);
+                Target.localPosition = new Vector3(-14, -24.5f, 70);
                 break;
             case 2:
-                Target.localPosition = new Vector3(-12.5f, -24.5f, 64);
+                Target.localPosition = new Vector3(-14, -24.5f, 70);
                 break;
             case 3:
-                Target.localPosition = new Vector3(-20, -24.5f, 64);
+                Target.localPosition = new Vector3(-17.5f, -24.5f, 72.1f);
                 break;
             default:
                 targetRandomPos = Random.Range(0, 3);
