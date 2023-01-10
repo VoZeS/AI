@@ -13,9 +13,9 @@ behaviors:
       beta_schedule: constant
       epsilon_schedule: linear
     network_settings:
-      normalize: false
-      hidden_units: 248
-      num_layers: 3
+      normalize: true
+      hidden_units: 128
+      num_layers: 2
     reward_signals:
       extrinsic:
         gamma: 0.99

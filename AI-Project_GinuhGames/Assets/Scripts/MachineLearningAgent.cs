@@ -28,7 +28,7 @@ public class MachineLearningAgent : Agent
         rBody = GetComponent<Rigidbody>();
         checker = GetComponent<CheckCollision>();
         floorComplexBounds = new Bounds(floor.transform.position - new Vector3(-8, 0, 8), new Vector3(140, 20, 50));
-        floorSimpleBounds = new Bounds(new Vector3(-25f, 0, -15f), new Vector3(10, 20, 10));
+        floorSimpleBounds = new Bounds(new Vector3(-25f, 0, -15f), new Vector3(30, 20, 30));
 
     }
 
@@ -87,19 +87,28 @@ public class MachineLearningAgent : Agent
         switch (targetRandomPos)
         {
             case 0:
-                Target.localPosition = new Vector3(-19, -24.5f, 66);
+                Target.localPosition = new Vector3(-27.5f, -24.5f, 76.6f);
                 break;
             case 1:
-                Target.localPosition = new Vector3(-14, -24.5f, 70);
+                Target.localPosition = new Vector3(-12, -24.5f, 67.7f);
                 break;
             case 2:
-                Target.localPosition = new Vector3(-14, -24.5f, 70);
+                Target.localPosition = new Vector3(-16.6f, -24.5f, 82.8f);
                 break;
             case 3:
-                Target.localPosition = new Vector3(-17.5f, -24.5f, 72.1f);
+                Target.localPosition = new Vector3(-21.9f, -24.5f, 64.1f);
+                break;
+            case 4:
+                Target.localPosition = new Vector3(-17.1f, -24.5f, 61.5f);
+                break;
+            case 5:
+                Target.localPosition = new Vector3(-9.1f, -24.5f, 82.5f);
+                break;
+            case 6:
+                Target.localPosition = new Vector3(-7.3f, -24.5f, 70.8f);
                 break;
             default:
-                targetRandomPos = Random.Range(0, 3);
+                targetRandomPos = Random.Range(0, 6);
                 break;
         }
     }
@@ -132,13 +141,13 @@ public class MachineLearningAgent : Agent
             case 0:
                 break;
             case 1:
-                transform.Translate(0, 0, 8f * Time.deltaTime);
+                transform.Translate(0, 0, 5f * Time.deltaTime);
                 break;
             case 2:
-                transform.Rotate(0, -200 * Time.deltaTime, 0);
+                transform.Rotate(0, -100 * Time.deltaTime, 0);
                 break;
             case 3:
-                transform.Rotate(0, 200 * Time.deltaTime, 0);
+                transform.Rotate(0, 100 * Time.deltaTime, 0);
                 break;
             default:
                 break;
@@ -223,7 +232,7 @@ public class MachineLearningAgent : Agent
 
         //Debug.Log(gameObject.name + " movement speed is:" + curentSpeed);
 
-        if (curentSpeed == 0.0f)
+        if (curentSpeed < 0.01f)
         {
             AddReward(-0.005f);
         }
